@@ -1,6 +1,6 @@
 # main links
 main:
   - title: "About"
-    url: https://dohyeoklee.github.io/about/
+    url: /about/
   - title: "Posts"
     url: /posts/
