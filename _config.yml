@@ -19,8 +19,8 @@ locale                   : "kr-KR"
 title                    : "Site Title"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "이도혁(dohyeok lee)"
-description              : "An amazing website."
+name                     : "이도혁/dohyeok lee"
+description              : "About Robotics&AI"
 url                      : "https://dohyeoklee.github.io"# the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : ""# the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -93,9 +93,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "이도혁(dohyeok lee)"
+  name             : "이도혁/dohyeok lee"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  bio              : "Robotics Engineer"
   location         : "Korea"
   email            :
   links:
