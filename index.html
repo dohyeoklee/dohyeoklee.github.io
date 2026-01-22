@@ -89,13 +89,12 @@
                 <img src="images/spqr_concept.jpg" alt="PontTuset" width="160" height="160" style="border-style: none">
               </td>
               <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/cdcaf772b4f8eda0385d0930517de64a-Abstract-Conference.html" id="MCG_journal">
                   <span class="papertitle">SPQR: Controlling Q-ensemble Independence with Spiked Random Model for Reinforcement Learning</span>
-                </a>
                 <br>
                 <strong>Dohyeok Lee</strong>, <a href="https://hansungy.github.io/">Seungyub Han</a>, Taehyun Cho, Jungwoo Lee
                 <br>
-                <em>NeurIPS</em>, 2023
+                <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/cdcaf772b4f8eda0385d0930517de64a-Abstract-Conference.html" id="MCG_journal">
+                <em>NeurIPS</em></a>, 2023
                 <br>
                 <a href="https://arxiv.org/abs/2401.03137/">paper</a> /
                 <a href="https://github.com/dohyeoklee/SPQR">code</a>
@@ -144,19 +143,38 @@
         </script>
       </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https://embodied-ai.org/cvpr2025/" id="MCG_journal">
           <span class="papertitle">Learning Generalizable Visuomotor Policy through Dynamics-Alignment</span>
-        </a>
         <br>
         <strong>Dohyeok Lee</strong>, Jung Min Lee, Munkyung Kim, Seokhun Ju, Seungyub Han, Jin Woo Koo, Jungwoo Lee
         <br>
-        <em>CVPR Embodied AI Workshop</em>, 2025
+        <a href="https://embodied-ai.org/cvpr2025/" id="MCG_journal">
+        <em>CVPR Embodied AI Workshop</em></a>, 2025
         <br>
         <a href="https://arxiv.org/abs/2510.27114">paper</a>
         <p></p>
         <p>
           We address <strong>temporal understanding</strong> by learning explicit dynamics and mutually correct dynamics models and policy by iterative flow generation. 
           Our key insight: <strong>random trajectory data</strong> (zero annotation cost) enables robust <strong>generalization beyond expert demonstrations</strong> to out-of-distribution scenarios.
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <img src="images/DistLCB_cover.jpg" alt="PontTuset" width="160" style="border-style: none">
+      </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+          <span class="papertitle">Pareto Optimal Risk-Agnostic Distributional Bandits with Heavy-Tail Rewards</span>
+        <br>
+        Kyungjae Lee, Dohyeong Kim, Taehyun Cho, Chaeyeon Kim, Yunkyung Ko, Seungyub Han, Seokhun Ju, <strong>Dohyeok Lee</strong>, Sungbin Lim
+        <br>
+        <em>NeurIPS</em>, 2025
+        <br>
+        <a href="https://openreview.net/pdf/a5ed9aea7a84df335eb3f4b222712e2168814909.pdf">paper</a>
+        <p></p>
+        <p>
+          We propose DistLCB, an algorithm for multi-armed bandits under heavy-tailed rewards that achieves asymptotic optimality for 
+          Lipschitz risk measures and extends to Pareto-optimal multi-risk objectives.
         </p>
       </td>
     </tr>
@@ -172,7 +190,8 @@
         <br>
         <strong>Dohyeok Lee</strong>, Munkyung Kim, Jung Min Lee, Seungyub Han, Jungwoo Lee
         <br>
-        <em>CVPR Embodied AI Workshop</em>, 2025
+        <a href="https://embodied-ai.org/cvpr2025/" id="MCG_journal">
+        <em>CVPR Embodied AI Workshop</em></a>, 2025
         <br>
         <a href="data/vi_camera_ready.pdf">paper</a>
         <p></p>
@@ -185,6 +204,58 @@
         </p>
       </td>
     </tr>
+
+    <tr>
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <img src="images/MVP-LAM_cover.jpg" alt="PontTuset" width="160" style="border-style: none">
+      </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+          <span class="papertitle">Viewpoint-Invariant Latent Action Learning from Human Video Demonstrations</span>
+        <br>
+        Jung Min Lee, <strong>Dohyeok Lee</strong>, Jungwoo Lee
+        <br>
+        <em>NeurIPS SpaVLE Workshop</em>, 2025
+        <br>
+        <a href="https://openreview.net/forum?id=Dd4UIrXLKj">paper</a>
+        <p></p>
+        <p>
+          We propose ViPILA, a method for learning latent actions from human videos that remains robust to 
+          viewpoint changes without action labels or camera calibrations, improving downstream robot policy learning.
+        </p>
+      </td>
+    </tr>
+
+    <tr onmouseout="spot_stop()" onmouseover="spot_start()">
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='spot_image'><img src='images/spot.gif' width="160" height="160"></div>
+          <img src='images/spot.jpg' width="160" height="160">
+        </div>
+        <script type="text/javascript">
+          function spot_start() {
+            document.getElementById('spot_image').style.opacity = "1";
+          }
+        
+          function spot_stop() {
+            document.getElementById('spot_image').style.opacity = "0";
+          }
+          spot_stop()
+        </script>
+      </td>
+    <td style="padding:8px;width:80%;vertical-align:middle">
+        <span class="papertitle">Hide and Seek: Looking and Loving</span>
+      <br>
+      Collaborator: <a href="https://minyoung.works/information">Minyoung Kim</a>, <a href="https://yejin-kim.com/contact">Yejin Kim</a>, <strong>Dohyeok Lee</strong>, Junyoung Kim, Sunho Chang
+      <br>
+      <em>Humanoids ECoCreate Workshop</em>, 2025
+      <br>
+      <a href="https://openreview.net/forum?id=TEo2eBqFzM">document</a> /
+      <a href="https://www.youtube.com/watch?v=ux7y3rQ4NdQ">video1</a> /
+      <a href="https://www.youtube.com/watch?v=dKUi6Okzj_E">video2</a>
+      <p></p>
+      <p>Developed Unity-ROS pipeline for AR visualization of Boston Dynamics Spot, enabling intuitive robot control system</p>
+    </td>
+  </tr>
 
     <tr onmouseout="furuta_stop()" onmouseover="furuta_start()">
       <td style="padding:16px;width:20%;vertical-align:middle">
@@ -232,6 +303,22 @@
 </tr>
 </tbody></table>
 <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+  <tr>
+    <td style="padding:16px;width:80%;vertical-align:middle">
+      <span class="papertitle">Visiting Ph.D. Student</span>
+    <br>
+    <a href="https://emprise.cs.cornell.edu/">EmPRISE Lab</a> @ Cornell University, Ithaca, USA
+    <br>
+    2025.01 - present
+    <br>
+    <p>
+      <ul>
+        <li>Developing physical caregiving system with robot learning</li>
+      </ul>
+    </p>
+    </td>
+  </tr>
+  
   <tr>
     <td style="padding:16px;width:80%;vertical-align:middle">
       <span class="papertitle">Robotics Engineer</span>
@@ -391,37 +478,6 @@
         <p>Developed wheel-based humanoid for navigation and object manipulation</p>
       </td>
     </tr>
-
-    <tr onmouseout="spot_stop()" onmouseover="spot_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='spot_image'><img src='images/spot.gif' width="160" height="160"></div>
-          <img src='images/spot.jpg' width="160" height="160">
-        </div>
-        <script type="text/javascript">
-          function spot_start() {
-            document.getElementById('spot_image').style.opacity = "1";
-          }
-        
-          function spot_stop() {
-            document.getElementById('spot_image').style.opacity = "0";
-          }
-          spot_stop()
-        </script>
-      </td>
-    <td style="padding:8px;width:80%;vertical-align:middle">
-        <span class="papertitle">Robot-AR system</span>
-      <br>
-      In collaboration with Zer01ne(Hyundai Motor Company), 2021
-      <br>
-      Collaborator: <a href="https://minyoung.works/information">Minyoung Kim</a>, <a href="https://yejin-kim.com/contact">Yejin Kim</a>, <strong>Dohyeok Lee</strong>, Junyoung Kim, Sunho Chang
-      <br>
-      <a href="https://www.youtube.com/watch?v=ux7y3rQ4NdQ">video1</a> /
-      <a href="https://vimeo.com/643065295">video2</a>
-      <p></p>
-      <p>Developed Unity-ROS pipeline for AR visualization of Boston Dynamics Spot, enabling intuitive robot control system</p>
-    </td>
-  </tr>
 
     <tr>
       <td style="padding:16px;width:20%;vertical-align:middle">
