@@ -5,7 +5,7 @@
 
     <title>Dohyeok Lee</title>
 
-    <meta name="author" content="Jon Barron">
+    <meta name="author" content="Dohyeok Lee">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -23,21 +23,21 @@
                   Dohyeok Lee
                 </p>
                 <p>
-                  I'm a Ph.D. student in Electrical and Computer Engineering at <a href="https://en.snu.ac.kr/index.html/">Seoul National University (SNU)</a>, advised by <a href="https://cml.snu.ac.kr/">Prof. Jungwoo Lee</a>.  
-                  Currently, I am a visiting researcher working with <a href="https://sites.google.com/site/tapomayukh">Prof. Tapomayukh Bhattacharjee</a> at Cornell University.
+                  I'm a Ph.D. student in Electrical and Computer Engineering at <a href="https://ece.snu.ac.kr/en">Seoul National University (SNU)</a>, advised by <a href="https://cml.snu.ac.kr/">Prof. Jungwoo Lee</a>.  
+                  Currently, I am a visiting Ph.D. student working with <a href="https://sites.google.com/site/tapomayukh">Prof. Tapomayukh Bhattacharjee</a> at <a href="https://www.cs.cornell.edu/">Cornell University</a>.
                 </p>
                 <p>
                   Previously, I received my M.S. in ECE from SNU in 2024 and B.S. in <a href="https://ee.kaist.ac.kr/en/">EE</a> from <a href="https://www.kaist.ac.kr/en/">KAIST</a> in 2020.
                 </p>
                 <p>
-                  <strong>Research Keywords</strong>: Robot Learning, Robotics, Learning from Demonstration (LfD), Reinforcement Learning (RL).
+                  <strong>Research Keywords</strong>: Robot Learning, Contact-Rich Manipulation, Visuomotor Control, Dynamics Modeling, Reinforcement Learning
                 </p>
 
                 <p style="text-align:center">
                   <a href="mailto:dohyeoklee.kr@gmail.com">Email</a> &nbsp;/&nbsp;
-                  <a href="data/CV_dhlee.pdf">CV</a> &nbsp;/&nbsp;
+                  <a href="data/CV_dlee.pdf">CV</a> &nbsp;/&nbsp;
                   <a href="https://scholar.google.com/citations?user=RcFFkMYAAAAJ&hl=en&oi=ao">Google Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/dohyeoklee/">Github</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/dohyeoklee/">GitHub</a> &nbsp;/&nbsp;
                   <a href="https://www.linkedin.com/in/dohyeoklee/">LinkedIn</a>
                 </p>
               </td>
@@ -52,37 +52,91 @@
             <td style="padding:16px;width:100%;vertical-align:middle">
           <h2>Research Vision</h2>
           <p class="research-question">
-            <strong>How can we leverage physics understanding to make robot learning truly generalizable?</strong>
+            <strong>Can physical understanding become the foundation for generalizable robotic dexterity?</strong>
           </p>
           <p>
-            My research focuses on empowering robots with physical understanding for robust generalization: when agents truly understand the physics and affordances of their environment, they can adapt beyond their training distribution.
-            This pursuit rests on a core assumption: unlike language (a human abstraction), <strong>nature has law</strong> - and these principles can be learned and leveraged.<br>
+            My research is driven by a simple belief: robots should not merely fit correlations in data, but learn the physical structure that governs interaction. 
+            Unlike language, physical interaction is governed by laws of nature, and these laws can provide a foundation for generalization beyond the training distribution.
           </p>
           <p>
-            This leads to two fundamental questions.
+            Two questions guide my work: <strong>how to represent physics</strong>, and <strong>how to move beyond prediction toward understanding</strong>.
+            I study these questions through dynamics modeling, novel view synthesis, and contact-aware control, 
+            with the goal of building robots that internalize causal physical structure and achieve dexterous manipulation in unseen, occluded, and contact-rich settings.
           </p>
-          <ul>
-            <li><strong>How do we represent physics?</strong> I combine novel view synthesis and dynamics prediction to enable informed decisions on unseen data.</li>
-            <li><strong>How do we achieve understanding beyond prediction?</strong> I aim to build systems that internalize causal structure, not merely forecast outcomes.</li>
-          </ul>
-          <p>
-            My vision is to create robotic systems that discover underlying principles to solve any fine manipulation task with human-level dexterity and adaptability.
-            </p>
           </td>
         </tr>
       </tbody></table>
-      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
 
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
-                <h2>Publications</h2>
+                <h2>Selected Publications</h2>
               </td>
             </tr>
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+            <tr>
+              <td style="padding:16px;width:20%;vertical-align:middle">
+                <img src="images/MVP-LAM_cover.jpg" alt="PontTuset" width="160" style="border-style: none">
+              </td>
+              <td style="padding:8px;width:80%;vertical-align:middle">
+                  <span class="papertitle">MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction</span>
+                <br>
+                <a href="https://jm-this.github.io/">Jung Min Lee</a>, <strong>Dohyeok Lee</strong>, Seokhun Ju, Taehyun Cho, Jin Woo Koo, Li Zhao, Sangwoo Hong, Jungwoo Lee
+                <br>
+                <em>ICML</em>, 2026 / <em>NeurIPS SpaVLE Workshop</em>, 2025
+                <br>
+                <a href="https://arxiv.org/abs/2602.03668">paper</a>
+                <p></p>
+                <p>
+                  Learning latent actions from unlabeled videos is often confounded by viewpoint-dependent visual changes. 
+                  MVP-LAM uses cross-viewpoint reconstruction on synchronized multi-view videos to learn action-centric latent actions, 
+                  improving VLA pretraining and downstream manipulation on SIMPLER and LIBERO-Long.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:16px;width:20%;vertical-align:middle">
+                <img src="images/tactic.jpg" alt="PontTuset" width="160" style="border-style: none">
+              </td>
+              <td style="padding:8px;width:80%;vertical-align:middle">
+                  <span class="papertitle">TACTIC: Tactile and Vision Conditioned Contact-Centric Control for Whole-Arm Manipulation</span>
+                <br>
+                <a href="https://www.cs.cornell.edu/~madan/">Rishabh Madan</a>, Angchen Xie, Samantha Saak, Andres Blanco, <strong>Dohyeok Lee</strong>, Sarah Grace Brown, Yunting Yan, Mark Zolotas, Jose Barreiros, Tapomayukh Bhattacharjee
+                <br>
+                <em>RSS</em>, 2026
+                <br>
+                <p></p>
+                <p>
+                  Whole-arm manipulation is challenging because contact states and interaction forces are partially observed and tightly coupled with robot motion. 
+                  TACTIC combines RGB-D, proximity, and distributed tactile sensing with contact-aware MPC and hybrid dynamics, 
+                  enabling safer contact-rich manipulation on simulated and real-world whole-arm tasks.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:16px;width:20%;vertical-align:middle">
+                <img src="images/pareto.jpg" alt="PontTuset" width="160" style="border-style: none">
+              </td>
+              <td style="padding:8px;width:80%;vertical-align:middle">
+                  <span class="papertitle">Pareto Optimal Risk-Agnostic Distributional Bandits with Heavy-Tail Rewards</span>
+                <br>
+                <a href="https://sites.google.com/view/kyungjaelee">Kyungjae Lee</a>, Dohyeong Kim, Taehyun Cho, Chaeyeon Kim, Yunkyung Ko, Seungyub Han, Seokhun Ju, <strong>Dohyeok Lee</strong>, Sungbin Lim
+                <br>
+                <em>NeurIPS</em>, 2025
+                <br>
+                <a href="https://openreview.net/forum?id=q8oLLyA34Q">paper</a>
+                <p></p>
+                <p>
+                  We propose DistLCB, an algorithm for multi-armed bandits under heavy-tailed rewards that achieves asymptotic optimality for 
+                  Lipschitz risk measures and extends to Pareto-optimal multi-risk objectives.
+                </p>
+              </td>
+            </tr>
 
             <tr>
               <td style="padding:16px;width:20%;vertical-align:middle">
@@ -105,6 +159,16 @@
                 </p>
               </td>
             </tr>
+
+
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <h2>Demos and Workshops</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
         
             <tr>
               <td style="padding:16px;width:20%;vertical-align:middle">
@@ -121,10 +185,11 @@
                 <p></p>
                 <p>
                   We created ARTE, <strong>a real-world human-robot collaborative</strong> drawing system with multi-modal goal-conditioned policy.
-                  This work validates our generalization aprroaches in actual deployment, demonstrating robust performance across diverse drawing scenarios and human interaction patterns.
+                  This work validates our generalization approaches in actual deployment, demonstrating robust performance across diverse drawing scenarios and human interaction patterns.
                 </p>
               </td>
             </tr>
+            
     <tr onmouseout="dyn_stop()" onmouseover="dyn_start()">
       <td style="padding:16px;width:20%;vertical-align:middle">
         <div class="one">
@@ -159,25 +224,7 @@
       </td>
     </tr>
 
-    <tr>
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <img src="images/DistLCB_cover.jpg" alt="PontTuset" width="160" style="border-style: none">
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-          <span class="papertitle">Pareto Optimal Risk-Agnostic Distributional Bandits with Heavy-Tail Rewards</span>
-        <br>
-        Kyungjae Lee, Dohyeong Kim, Taehyun Cho, Chaeyeon Kim, Yunkyung Ko, Seungyub Han, Seokhun Ju, <strong>Dohyeok Lee</strong>, Sungbin Lim
-        <br>
-        <em>NeurIPS</em>, 2025
-        <br>
-        <a href="https://openreview.net/pdf/a5ed9aea7a84df335eb3f4b222712e2168814909.pdf">paper</a>
-        <p></p>
-        <p>
-          We propose DistLCB, an algorithm for multi-armed bandits under heavy-tailed rewards that achieves asymptotic optimality for 
-          Lipschitz risk measures and extends to Pareto-optimal multi-risk objectives.
-        </p>
-      </td>
-    </tr>
+    
 
     <tr>
       <td style="padding:16px;width:20%;vertical-align:middle">
@@ -196,31 +243,8 @@
         <a href="data/vi_camera_ready.pdf">paper</a>
         <p></p>
         <p>
-          We tackle <strong>spatial understanding</strong> challenges where fixed cameras fail during occlusions. 
-          Our approach leverages <strong>novel view synthesis</strong> to generate optimal viewpoints, enabling robust <strong>generalization to unseen spatial configurations</strong> and visual ambiguities.
-
-          We proposed View-Imagination, a novel framework that dynamically selects optimal camera viewpoints for robotic manipulation using adaptive view synthesis. 
-          Based on our key insight that the most informative viewpoint is scene-dependent, View-Imagination trains a learnable viewpoint policy enabling robots to actively resolve visual ambiguities like occlusions.
-        </p>
-      </td>
-    </tr>
-
-    <tr>
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <img src="images/MVP-LAM_cover.jpg" alt="PontTuset" width="160" style="border-style: none">
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-          <span class="papertitle">Viewpoint-Invariant Latent Action Learning from Human Video Demonstrations</span>
-        <br>
-        Jung Min Lee, <strong>Dohyeok Lee</strong>, Jungwoo Lee
-        <br>
-        <em>NeurIPS SpaVLE Workshop</em>, 2025
-        <br>
-        <a href="https://openreview.net/forum?id=Dd4UIrXLKj">paper</a>
-        <p></p>
-        <p>
-          We propose ViPILA, a method for learning latent actions from human videos that remains robust to 
-          viewpoint changes without action labels or camera calibrations, improving downstream robot policy learning.
+          View-Imagination addresses visual ambiguity in fixed-camera robot manipulation by synthesizing and selecting task-informative viewpoints, 
+          improving robustness to occlusions and unseen spatial configurations.
         </p>
       </td>
     </tr>
@@ -245,9 +269,9 @@
     <td style="padding:8px;width:80%;vertical-align:middle">
         <span class="papertitle">Hide and Seek: Looking and Loving</span>
       <br>
-      Collaborator: <a href="https://minyoung.works/information">Minyoung Kim</a>, <a href="https://yejin-kim.com/contact">Yejin Kim</a>, <strong>Dohyeok Lee</strong>, Junyoung Kim, Sunho Chang
+      <a href="https://minyoung.works/information">Minyoung Kim</a>, <a href="https://yejin-kim.com/contact">Yejin Kim</a>, <strong>Dohyeok Lee</strong>
       <br>
-      <em>Humanoids ECoCreate Workshop</em>, 2025
+      <em>IEEE-RAS Humanoids ECoCreate Workshop</em>, 2025
       <br>
       <a href="https://openreview.net/forum?id=TEo2eBqFzM">document</a> /
       <a href="https://www.youtube.com/watch?v=ux7y3rQ4NdQ">video1</a> /
@@ -257,113 +281,58 @@
     </td>
   </tr>
 
-    <tr onmouseout="furuta_stop()" onmouseover="furuta_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='furuta_image'><img src='images/furuta.gif' width="160" height="160"></div>
-          <img src='images/furuta.jpg' width="160" height="160">
-        </div>
-        <script type="text/javascript">
-          function furuta_start() {
-            document.getElementById('furuta_image').style.opacity = "1";
-          }
-        
-          function furuta_stop() {
-            document.getElementById('furuta_image').style.opacity = "0";
-          }
-          furuta_stop()
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-          <span class="papertitle">Control of Furuta Pendulum with Reinforcement Learning</span>
-        <br>
-        <strong>Dohyeok Lee</strong>, Usama Mohammad, Dong Eui Chang
-        <br>
-        <em>ICCAS</em>, 2019
-        <br>
-        <a href="https://www.youtube.com/watch?v=a6W6u8iMDU8&ab_channel=ControlLabKAIST">video</a>
-        <p></p>
-        <p>
-          We implemented robust control for the Furuta pendulum with <strong>in-the-wild and sim2real training</strong> across diverse tasks.
-          This work established our commitment to real-world robust RL agents.
-        </p>
-      </td>
-    </tr> 
+    
 </tbody></table>
 
 <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
   <tr>
   <td style="padding:16px;width:100%;vertical-align:middle">
-    <h2>Work Experience</h2>
-    <p>
-      Prior to my Ph.D., I gained hands-on robotics experience at two startups, building complete robotic systems from hardware to deployment. 
-      This practical background informs my current research on making learning algorithms work reliably in real-world settings.
+    <h2>Industry Experience</h2>
+     <p class="section-intro">
+      Hands-on robotics engineering experience at early-stage robotics startups, building real-world systems from hardware integration to deployment.
     </p>
   </td>
-</tr>
-</tbody></table>
-<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-  <tr>
-    <td style="padding:16px;width:80%;vertical-align:middle">
-      <span class="papertitle">Visiting Ph.D. Student</span>
-    <br>
-    <a href="https://emprise.cs.cornell.edu/">EmPRISE Lab</a> @ Cornell University, Ithaca, USA
-    <br>
-    2025.01 - present
-    <br>
-    <p>
-      <ul>
-        <li>Developing physical caregiving system with robot learning</li>
-      </ul>
-    </p>
-    </td>
   </tr>
+  </tbody></table>
   
-  <tr>
-    <td style="padding:16px;width:80%;vertical-align:middle">
-      <span class="papertitle">Robotics Engineer</span>
-    <br>
-    <a href="https://diveintothehive.com/">D.Hive</a> (startup), Daejeon, Korea
-    <br>
-    2020.10 - 2021.04
-    <br>
-    <p>
-      <ul>
-        <li>Built autonomous outdoor delivery robot from scratch, integrating sensor fusion for robust navigation in urban environments</li>
-        <li>Led 10-engineer team across hardware/software, achieving successful deployment in real-world delivery scenarios</li>
+  <table class="compact-table"><tbody>
+    <tr>
+    <td class="compact-item">
+      <span class="papertitle">Robotics Engineer</span>,
+      <a href="https://diveintothehive.com/">D.Hive</a>, Daejeon, Korea
+      <div class="compact-meta">2020.10 - 2021.04</div>
+      <ul class="compact-list">
+        <li>Built and deployed an autonomous outdoor delivery robot, integrating sensor fusion, navigation, and hardware/software systems while leading a 10-engineer team.</li>
       </ul>
-    </p>
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="padding:16px;width:80%;vertical-align:middle">
-      <span class="papertitle">Robotics Engineer Intern</span>
-    <br>
-    <a href="https://coops.bot/">Crazing Lab</a> (startup), Pangyo, Korea
-    <br>
-    2019.06 - 2019.08
-    <br>
-    <p>
-      <ul>
-        <li>Built autonomous filming robot: hardware (frame, battery system), BLDC motor control system, and UART communication system</li>
-        <li>Implemented ROS system for motor control, IMU, LiDAR, and depth camera data processing</li>
-      </ul>
-    </p>
     </td>
   </tr>
 
+  <tr>
+    <td class="compact-item">
+      <span class="papertitle">Robotics Engineer Intern</span>,
+      <a href="https://coops.bot/">Crazing Lab</a>, Pangyo, Korea
+      <div class="compact-meta">2019.06 - 2019.08</div>
+      <ul class="compact-list">
+        <li>Built an autonomous filming robot, including frame design, battery system, BLDC motor control, UART communication, and ROS integration for IMU, LiDAR, and depth sensing.</li>
+      </ul>
+    </td>
+  </tr>
 
-<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+  </tbody></table>
+
+
+<!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
   <tr>
   <td style="padding:16px;width:100%;vertical-align:middle">
     <h2>Open Source Contribution</h2>
   </td>
 </tr>
 </tbody></table>
-<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody> -->
 
-
+  <details class="fold-section">
+  <summary>Open Source Contributions</summary>
+  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
   <tr>
     <td style="padding:16px;width:20%;vertical-align:middle">
@@ -419,7 +388,7 @@
       <br>
       <a href="https://github.com/dohyeoklee/EKF-kitti-GPS-IMU">code</a>
       <p></p>
-      <p>Implemented EKF(Extended Kalman Filter) for sensor fusion of GPS and IMU data with Kitti dataset
+      <p>Implemented EKF(Extended Kalman Filter) for sensor fusion of GPS and IMU data with Kitti dataset</p>
     </td>
   </tr>
 
@@ -447,20 +416,26 @@
       <br>
       <a href="https://github.com/dohyeoklee/RRT-python">code</a>
       <p></p>
-      <p>Implemented RRT(Rapid Random Tree) algorithms
+      <p>Implemented RRT(Rapid Random Tree) algorithms</p>
     </td>
   </tr>     
 
+  </tbody></table>
+  </details>
 
-  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+
+  <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
     <tr>
     <td style="padding:16px;width:100%;vertical-align:middle">
-      <h2>Robotics Project</h2>
+      <h2>Robotics Projects</h2>
     </td>
     </tr>
     </tbody></table>
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody> -->
+<details class="fold-section">
+  <summary>Robotics Projects</summary>
+  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
 
     <tr>
@@ -578,17 +553,21 @@
       </td>
     </tr>
 	
+    </tbody></table>
+</details>
 
-	  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+	  <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
     <tr>
     <td style="padding:16px;width:100%;vertical-align:middle">
       <h2>Other Research Project</h2>
     </td>
     </tr>
     </tbody></table>
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody> -->
    
-
+      <details class="fold-section">
+  <summary>Other Research Projects</summary>
+  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
     <tr onmouseout="iso_stop()" onmouseover="iso_start()">
       <td style="padding:16px;width:20%;vertical-align:middle">
@@ -687,6 +666,38 @@
       </td>
     </tr>
 
+    <tr onmouseout="furuta_stop()" onmouseover="furuta_start()">
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='furuta_image'><img src='images/furuta.gif' width="160" height="160"></div>
+          <img src='images/furuta.jpg' width="160" height="160">
+        </div>
+        <script type="text/javascript">
+          function furuta_start() {
+            document.getElementById('furuta_image').style.opacity = "1";
+          }
+        
+          function furuta_stop() {
+            document.getElementById('furuta_image').style.opacity = "0";
+          }
+          furuta_stop()
+        </script>
+      </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+          <span class="papertitle">Control of Furuta Pendulum with Reinforcement Learning</span>
+        <br>
+        <strong>Dohyeok Lee</strong>, Usama Mohammad, Dong Eui Chang
+        <br>
+        <em>ICCAS</em>, 2019
+        <br>
+        <a href="https://www.youtube.com/watch?v=a6W6u8iMDU8&ab_channel=ControlLabKAIST">video</a>
+        <p></p>
+        <p>
+          Implemented real-world RL control for a Furuta pendulum, including in-the-wild and sim-to-real training.
+        </p>
+      </td>
+    </tr> 
+
     <tr>
       <td style="padding:16px;width:20%;vertical-align:middle">
         <img src="images/3d_pose.png" alt="PontTuset" width="160" height="100" style="border-style: none">
@@ -703,22 +714,21 @@
       </td>
     </tr>
        
-
+</tbody></table>
+</details>
         
-     <table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
-            <tr>
-              <td>
-                <h2>Miscellanea</h2>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+     <details class="fold-section">
+        <summary>Miscellanea</summary>
+        <table class="compact-table"><tbody>
+          <tr>
+            <td class="compact-item">
+              Reviewer for NeurIPS 2025 and 2026, CoRL Workshop 2024, ITW 2024
+            </td>
+          </tr>
+        </tbody></table>
+      </details>
 
-            <td style="padding:16px;width:80%;vertical-align:middle">
-              Service: Reviewer for NeurIPS 2025, CoRL Workshop 2024, ITW 2024
-            </td>	
-           
-          </tbody></table>
+
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:0px">

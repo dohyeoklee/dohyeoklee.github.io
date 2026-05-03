@@ -140,3 +140,75 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+
+.section-intro {
+  margin-bottom: -10px;
+}
+
+.compact-table {
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: separate;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.compact-item {
+  padding: 6px 16px;
+  width: 100%;
+  vertical-align: top;
+  line-height: 1.35;
+}
+
+.compact-meta {
+  margin-top: 2px;
+  color: #555;
+  font-size: 0.95em;
+}
+
+.compact-list {
+  margin: 4px 0 0 18px;
+  padding-left: 12px;
+}
+
+.compact-list li {
+  margin: 2px 0;
+}
+
+.fold-section {
+  margin: 8px 0;
+}
+
+.fold-section summary {
+  cursor: pointer;
+  padding: 10px 16px;
+  font-size: 1.25em;
+  font-weight: 500;
+  list-style: none;
+}
+
+.fold-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.fold-section summary::before {
+  content: "▸";
+  display: inline-block;
+  width: 18px;
+  color: #555;
+}
+
+.fold-section[open] summary::before {
+  content: "▾";
+}
+
+.fold-section table {
+  margin-top: 0;
+}
+
+.section-header {
+  padding: 16px 16px 4px 16px;
+  width: 100%;
+  vertical-align: middle;
+}
