@@ -77,6 +77,50 @@
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+            <tr onmouseout="dyn_stop()" onmouseover="dyn_start()">
+              <td style="padding:16px;width:20%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='dyn_image'><img src='images/dyn_exp.gif' width="160" height="160"></div>
+                  <img src='images/dyn_concept figure_1.png' width="160" height="160">
+                </div>
+                <script type="text/javascript">
+                  function dyn_start() {
+                    document.getElementById('dyn_image').style.opacity = "1";
+                  }
+                
+                  function dyn_stop() {
+                    document.getElementById('dyn_image').style.opacity = "0";
+                  }
+                  dyn_stop()
+                </script>
+              </td>
+              <td style="padding:8px;width:80%;vertical-align:middle">
+                  <span class="papertitle">Learning Generalizable Visuomotor Policy through Dynamics-Alignment</span>
+                <br>
+                  <strong>Dohyeok Lee</strong>,
+                  <a href="https://jm-this.github.io/">Jung Min Lee</a>, 
+                  Munkyung Kim, 
+                  <a href="https://www.linkedin.com/in/seokhunju/">Seokhun Ju</a>, 
+                  <a href="https://jm-this.github.io/">Jin Woo Koo</a>, 
+                  <a href="https://sites.google.com/view/kyungjaelee">Kyungjae Lee</a>, 
+                  <a href="https://dobro12.github.io/">Dohyeong Kim</a>,
+                  <a href="https://talium0713.github.io/">Taehyun Cho</a>,
+                  <a href="https://sites.google.com/site/tapomayukh">Tapomayukh Bhattacharjee</a>,
+                  <a href="https://cml.snu.ac.kr/professor/">Jungwoo Lee</a>
+                <br>
+                <a href="https://embodied-ai.org/cvpr2025/" id="MCG_journal">
+                <em>CoRL</em>, 2026 / <em>CVPR Embodied AI Workshop</em></a>, 2025
+                <br>
+                <a href="https://arxiv.org/abs/2510.27114">paper</a> / <a href="https://dynamics-aligned-policy.github.io/">website</a>
+                <p></p>
+                <p>
+                  Generative BC policies model expert actions well but do not reason about what scene a candidate action would produce, and placing an action-conditioned dynamics model inside them creates a circular dependency.
+                  DAP co-samples actions and future observations with a flow matching policy and dynamics model that correct each other at every flow step, outperforming the strongest baselines by 56.5% in simulation and 33.3% in the
+                  real world and staying robust when future predictions are corrupted.
+                </p>
+              </td>
+            </tr>
+
             <tr>
               <td style="padding:16px;width:20%;vertical-align:middle">
                 <img src="images/MVP-LAM_cover.jpg" alt="PontTuset" width="160" style="border-style: none">
@@ -84,11 +128,18 @@
               <td style="padding:8px;width:80%;vertical-align:middle">
                   <span class="papertitle">MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction</span>
                 <br>
-                <a href="https://jm-this.github.io/">Jung Min Lee</a>, <strong>Dohyeok Lee</strong>, Seokhun Ju, Taehyun Cho, Jin Woo Koo, Li Zhao, Sangwoo Hong, Jungwoo Lee
+                  <a href="https://jm-this.github.io/">Jung Min Lee</a>, 
+                  <strong>Dohyeok Lee</strong>, 
+                  <a href="https://www.linkedin.com/in/seokhunju/">Seokhun Ju</a>, 
+                  <a href="https://talium0713.github.io/">Taehyun Cho</a>, 
+                  <a href="https://jm-this.github.io/">Jin Woo Koo</a>, 
+                  Li Zhao, 
+                  Sangwoo Hong, 
+                  <a href="https://cml.snu.ac.kr/professor/">Jungwoo Lee</a>
                 <br>
                 <em>ICML</em>, 2026 / <em>NeurIPS SpaVLE Workshop</em>, 2025
                 <br>
-                <a href="https://arxiv.org/abs/2602.03668">paper</a>
+                <a href="https://arxiv.org/abs/2602.03668">paper</a> / <a href="https://jm-this.github.io/mvp_lam/">website</a>
                 <p></p>
                 <p>
                   Learning latent actions from unlabeled videos is often confounded by viewpoint-dependent visual changes. 
@@ -190,40 +241,6 @@
                 </p>
               </td>
             </tr>
-            
-    <tr onmouseout="dyn_stop()" onmouseover="dyn_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='dyn_image'><img src='images/dyn_exp.gif' width="160" height="160"></div>
-          <img src='images/dyn_concept figure_1.png' width="160" height="160">
-        </div>
-        <script type="text/javascript">
-          function dyn_start() {
-            document.getElementById('dyn_image').style.opacity = "1";
-          }
-        
-          function dyn_stop() {
-            document.getElementById('dyn_image').style.opacity = "0";
-          }
-          dyn_stop()
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-          <span class="papertitle">Learning Generalizable Visuomotor Policy through Dynamics-Alignment</span>
-        <br>
-        <strong>Dohyeok Lee</strong>, Jung Min Lee, Munkyung Kim, Seokhun Ju, Seungyub Han, Jin Woo Koo, Jungwoo Lee
-        <br>
-        <a href="https://embodied-ai.org/cvpr2025/" id="MCG_journal">
-        <em>CVPR Embodied AI Workshop</em></a>, 2025
-        <br>
-        <a href="https://arxiv.org/abs/2510.27114">paper</a>
-        <p></p>
-        <p>
-          We address <strong>temporal understanding</strong> by learning explicit dynamics and mutually correct dynamics models and policy by iterative flow generation. 
-          Our key insight: <strong>random trajectory data</strong> (zero annotation cost) enables robust <strong>generalization beyond expert demonstrations</strong> to out-of-distribution scenarios.
-        </p>
-      </td>
-    </tr>
 
     
 
