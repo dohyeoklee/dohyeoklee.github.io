@@ -1,0 +1,842 @@
+<title>Dohyeok Lee Identity Drafts</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,300..600;1,7..72,300..600&family=JetBrains+Mono:wght@400;500&family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@400;700&family=Noto+Serif+KR:wght@400;600&display=swap">
+<style>
+/* Layout concept: a lab notebook that reads like a magazine. Serif for thought, mono for facts, one yellow for emphasis. */
+:root{
+  /* neutrals: newsprint, slightly green-grey, so it does not read as pi's warm stone */
+  --paper:#F6F6F0; --paper-2:#ECECE4; --ink:#16171A; --ink-2:#4E4F4A; --ink-3:#86877F; --rule:#D6D6CC;
+  /* accent (default: highlighter) */
+  --acc:#7D6C00; --acc-bg:#F2E35A; --acc-ink:#16171A;
+  /* figure palette: stroke / tint pairs */
+  --c-yel:#B38F00; --c-yel-t:#F5EAB0;
+  --c-ind:#3B4BA3; --c-ind-t:#DDE1F4;
+  --c-tea:#18837A; --c-tea-t:#D3ECE8;
+  --c-cor:#CC5236; --c-cor-t:#F7DDD4;
+  --c-plm:#874A8C; --c-plm-t:#ECDDED;
+  --c-sag:#5F8434; --c-sag-t:#E2EBD4;
+  --c-gry:#6E6F68; --c-gry-t:#E4E4DC;
+  /* type (default: set I) */
+  --f-display:"Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-body:"Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --f-kr:"Gowun Batang", "Nanum Myeongjo", serif;
+  --chrome-h:52px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131412; --paper-2:#1C1D1A; --ink:#E8E7DE; --ink-2:#B3B2A8; --ink-3:#7E7E75; --rule:#30312C;
+    --acc:#EEDC55; --acc-bg:#4D4614; --acc-ink:#F7F0B5;
+    --c-yel:#E3C14A; --c-yel-t:#3B3418; --c-ind:#93A0EE; --c-ind-t:#22284A; --c-tea:#5CC2B5; --c-tea-t:#163330;
+    --c-cor:#EE8A6E; --c-cor-t:#3D211A; --c-plm:#CC94D0; --c-plm-t:#33223A; --c-sag:#9DC46C; --c-sag-t:#26301B;
+    --c-gry:#A3A49A; --c-gry-t:#2A2B27; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131412; --paper-2:#1C1D1A; --ink:#E8E7DE; --ink-2:#B3B2A8; --ink-3:#7E7E75; --rule:#30312C;
+  --acc:#EEDC55; --acc-bg:#4D4614; --acc-ink:#F7F0B5;
+  --c-yel:#E3C14A; --c-yel-t:#3B3418; --c-ind:#93A0EE; --c-ind-t:#22284A; --c-tea:#5CC2B5; --c-tea-t:#163330;
+  --c-cor:#EE8A6E; --c-cor-t:#3D211A; --c-plm:#CC94D0; --c-plm-t:#33223A; --c-sag:#9DC46C; --c-sag-t:#26301B;
+  --c-gry:#A3A49A; --c-gry-t:#2A2B27; color-scheme:dark;
+}
+/* accent option: ochre */
+:root[data-accent="ochre"]{ --acc:#9C6A06; --acc-bg:#EFDCAA; --acc-ink:#3A2700; }
+:root[data-theme="dark"][data-accent="ochre"]{ --acc:#E2AC45; --acc-bg:#41331A; --acc-ink:#F5DDA8; }
+/* accent option: butter paper + indigo ink */
+:root[data-accent="butter"]{ --paper:#FCF9E8; --paper-2:#F5F0D8; --rule:#E4DCBC; --acc:#3442A0; --acc-bg:#F6E58E; --acc-ink:#16171A; }
+:root[data-theme="dark"][data-accent="butter"]{ --paper:#17160E; --paper-2:#211F14; --rule:#3A3722; --acc:#A3AEF4; --acc-bg:#4D4416; --acc-ink:#F6EBB0; }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"])[data-accent="ochre"]{ --acc:#E2AC45; --acc-bg:#41331A; --acc-ink:#F5DDA8; }
+  :root:not([data-theme="light"])[data-accent="butter"]{ --paper:#17160E; --paper-2:#211F14; --rule:#3A3722; --acc:#A3AEF4; --acc-bg:#4D4416; --acc-ink:#F6EBB0; }
+}
+/* type option II and III */
+:root[data-type="2"]{ --f-display:"Spectral", Georgia, serif; --f-body:"Spectral", Georgia, serif; --f-mono:"DM Mono", ui-monospace, monospace; --f-kr:"Nanum Myeongjo", serif; }
+:root[data-type="3"]{ --f-display:"Literata", Georgia, serif; --f-body:"Literata", Georgia, serif; --f-mono:"JetBrains Mono", ui-monospace, monospace; --f-kr:"Noto Serif KR", serif; }
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:17px; line-height:1.55; transition:background .25s,color .25s}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:30; background:var(--paper)}
+a{color:inherit; text-decoration-color:var(--rule); text-underline-offset:3px; text-decoration-thickness:1px}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:2px solid var(--acc); outline-offset:2px}
+::selection{background:var(--acc-bg); color:var(--acc-ink)}
+.mono{font-family:var(--f-mono); font-size:12px; letter-spacing:.02em; line-height:1.5}
+.cap{font-family:var(--f-mono); font-size:11px; text-transform:uppercase; letter-spacing:.14em; color:var(--ink-3)}
+mark,.hl{background:linear-gradient(transparent 52%, var(--acc-bg) 52%, var(--acc-bg) 92%, transparent 92%); color:inherit; padding:0 .08em}
+:root[data-accent="ochre"] mark{background:none; color:var(--acc); font-style:italic}
+:root[data-accent="butter"] mark{background:none; color:var(--acc); text-decoration:underline; text-decoration-color:var(--acc); text-underline-offset:4px}
+h1,h2,h3{font-family:var(--f-display); font-weight:400; text-wrap:balance; margin:0}
+p{margin:0}
+.kr{font-family:var(--f-kr); word-break:keep-all}
+.tag{display:inline-block; font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; padding:1px 6px; border:1px solid var(--rule); color:var(--ink-2); border-radius:2px; white-space:nowrap}
+.tag.k-paper{border-color:var(--c-ind); color:var(--c-ind)}
+.tag.k-essay{border-color:var(--acc); color:var(--acc)}
+.tag.k-project{border-color:var(--c-tea); color:var(--c-tea)}
+.tag.k-ko{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.sample{font-family:var(--f-mono); font-size:9.5px; letter-spacing:.1em; color:var(--ink-3); border:1px dashed var(--ink-3); padding:0 4px; margin-left:6px; vertical-align:2px; white-space:nowrap}
+img.ph{filter:grayscale(1) contrast(1.05); mix-blend-mode:multiply; transition:filter .3s}
+:root[data-theme="dark"] img.ph{mix-blend-mode:normal; filter:grayscale(1) brightness(.85)}
+img.ph:hover{filter:none}
+
+/* ===== chrome ===== */
+.chrome{position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:var(--paper); border-bottom:1px solid var(--ink); padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px))}
+.chrome-in{display:flex; flex-wrap:wrap; align-items:center; gap:8px 20px; padding-block:10px; font-family:var(--f-mono); font-size:12px}
+.chrome .brand{font-weight:500; letter-spacing:.04em}
+.seg{display:flex; gap:0; border:1px solid var(--rule); border-radius:3px; overflow:hidden}
+.seg button{font:inherit; font-size:11.5px; background:transparent; color:var(--ink-2); border:0; border-right:1px solid var(--rule); padding:4px 9px; cursor:pointer; white-space:nowrap}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink); color:var(--paper)}
+.ctl{display:flex; align-items:center; gap:8px}
+.ctl > span{color:var(--ink-3); font-size:11px}
+.tabs{display:flex; flex-wrap:wrap; gap:4px 14px; flex-basis:100%; border-top:1px solid var(--rule); padding-top:8px}
+.tabs a{text-decoration:none; color:var(--ink-3); padding-bottom:2px; border-bottom:2px solid transparent}
+.tabs a[aria-current="page"]{color:var(--ink); border-bottom-color:var(--acc-bg)}
+:root[data-accent="butter"] .tabs a[aria-current="page"]{border-bottom-color:var(--acc)}
+.note{padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)); padding-block:14px; border-bottom:1px solid var(--rule); background:var(--paper-2)}
+.note p{font-family:var(--f-kr); font-size:14px; line-height:1.65; max-width:820px; color:var(--ink-2); word-break:keep-all}
+.note b{color:var(--ink); font-weight:700}
+.draft[hidden]{display:none}
+.pad{padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ===== A: Notebook ===== */
+.A{max-width:1180px; margin:0 auto; padding-block:48px 80px}
+.A-head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px 32px; padding-bottom:20px; border-bottom:1px solid var(--ink)}
+.A-name{font-size:clamp(40px,6vw,64px); line-height:1; letter-spacing:-.01em}
+.A-nav{display:flex; gap:18px; font-family:var(--f-mono); font-size:13px}
+.A-nav a{text-decoration:none; border-bottom:1px solid var(--ink)}
+.A-meta{display:flex; flex-wrap:wrap; gap:6px 24px; padding-block:10px; border-bottom:1px solid var(--rule)}
+.A-grid{display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:56px; padding-top:36px}
+.A-lede{font-size:clamp(21px,2.3vw,26px); line-height:1.4; font-weight:300; max-width:30em; margin-bottom:44px}
+.A-lede em{font-style:italic}
+.A-secthead{display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid var(--ink); padding-bottom:6px; margin-bottom:4px}
+.tl{list-style:none; margin:0; padding:0}
+.tl li{display:grid; grid-template-columns:92px minmax(0,1fr); gap:20px; padding-block:18px; border-bottom:1px solid var(--rule)}
+.tl .when{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); padding-top:5px}
+.tl h3{font-size:22px; line-height:1.25; margin:4px 0 4px}
+.tl .who{font-size:15px; color:var(--ink-2)}
+.tl .who b{font-weight:500; color:var(--ink)}
+.tl .sum{font-size:16px; color:var(--ink-2); margin-top:6px; max-width:38em}
+.tl .venue{font-family:var(--f-mono); font-size:12px; color:var(--ink-2); margin-top:6px; display:flex; flex-wrap:wrap; gap:4px 14px}
+.tl .fig{margin-top:14px; border:1px solid var(--rule); background:#fff; padding:10px}
+:root[data-theme="dark"] .tl .fig{background:var(--paper-2)}
+.tl .fig img{display:block; width:100%; height:auto}
+.tl li.feature{grid-template-columns:92px minmax(0,1fr)}
+.tl li.feature h3{font-size:28px}
+.side{display:flex; flex-direction:column; gap:28px; font-size:15px}
+.side .card{border-top:1px solid var(--ink); padding-top:8px}
+.side .card p{color:var(--ink-2); margin-top:8px}
+.side ul{list-style:none; padding:0; margin:8px 0 0; display:flex; flex-direction:column; gap:6px}
+.side img{width:100%; aspect-ratio:1; object-fit:cover; max-width:100%}
+.clock{font-family:var(--f-mono); font-size:12px; display:grid; grid-template-columns:auto 1fr; gap:2px 12px; margin-top:8px; font-variant-numeric:tabular-nums}
+
+/* ===== B: Panels ===== */
+.B{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr); height:calc(100vh - 140px); min-height:560px; border-bottom:1px solid var(--rule)}
+.B .col{overflow-y:auto; padding:18px 18px 40px; border-right:1px solid var(--rule); min-width:0}
+.B .col:last-child{border-right:0}
+.B .colhead{display:flex; justify-content:space-between; position:sticky; top:-18px; background:var(--paper); padding:18px 0 8px; margin-top:-18px; border-bottom:1px solid var(--ink); margin-bottom:16px; z-index:1}
+.B-name{font-size:44px; line-height:1.02; letter-spacing:-.01em; margin-bottom:16px}
+.B .bio{font-size:16px; color:var(--ink-2); display:flex; flex-direction:column; gap:12px}
+.B .portrait{width:120px; aspect-ratio:1; object-fit:cover; margin-bottom:16px}
+.B .paper{display:grid; grid-template-columns:28px minmax(0,1fr); gap:10px; padding-bottom:28px; margin-bottom:24px; border-bottom:1px solid var(--rule)}
+.B .paper .n{font-family:var(--f-mono); font-size:12px; color:var(--ink-3)}
+.B .paper img{width:100%; height:auto; display:block; margin-bottom:12px; border:1px solid var(--rule); background:#fff}
+.B .paper h3{font-size:21px; line-height:1.25}
+.B .paper .sum{font-size:15px; color:var(--ink-2); margin-top:6px}
+.B .wl{list-style:none; margin:0; padding:0}
+.B .wl li{padding-block:12px; border-bottom:1px solid var(--rule)}
+.B .wl h4{font-family:var(--f-display); font-weight:400; font-size:19px; line-height:1.3; margin:4px 0 2px}
+.B .cv{font-family:var(--f-mono); font-size:12px; display:grid; grid-template-columns:76px minmax(0,1fr); gap:6px 12px; margin-top:6px}
+.B .cv dt{color:var(--ink-3)} .B .cv dd{margin:0}
+
+/* ===== C: Index ===== */
+.C{max-width:1400px; margin:0 auto; padding-block:28px 80px}
+.C-top{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto; gap:16px; font-family:var(--f-mono); font-size:12px; border-bottom:1px solid var(--ink); padding-bottom:8px}
+.C-name{font-size:clamp(56px,11vw,150px); line-height:.92; letter-spacing:-.025em; margin:56px 0 18px; font-weight:300}
+.C-name i{font-style:italic}
+.C-intro{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:24px; margin-bottom:56px}
+.C-intro p{font-size:19px; max-width:34em; color:var(--ink-2)}
+.C-filter{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px}
+.C-filter button{font-family:var(--f-mono); font-size:12px; border:1px solid var(--rule); background:transparent; color:var(--ink-2); padding:4px 10px; border-radius:999px; cursor:pointer}
+.C-filter button[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.idx{width:100%; border-collapse:collapse}
+.idx th{font-family:var(--f-mono); font-size:11px; font-weight:400; text-align:left; color:var(--ink-3); letter-spacing:.08em; text-transform:uppercase; padding:8px 8px 6px 0; border-bottom:1px solid var(--ink)}
+.idx td{padding:12px 12px 10px 0; border-bottom:1px solid var(--rule); vertical-align:baseline}
+.idx td.t{font-family:var(--f-display); font-size:clamp(20px,2.4vw,30px); line-height:1.15}
+.idx td.m{font-family:var(--f-mono); font-size:12px; color:var(--ink-2); white-space:nowrap}
+.idx td.y{font-family:var(--f-display); font-size:clamp(20px,2.4vw,30px); text-align:right; font-variant-numeric:tabular-nums; padding-right:0; color:var(--ink-3)}
+.idx tr.row{cursor:default}
+.idx tr.row:hover td{background:var(--paper-2)}
+.idx tr.row:hover td.t{color:var(--ink)}
+.idx tr.row:hover td.y{color:var(--acc)}
+.idx .n{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); width:44px}
+.peek{position:fixed; width:280px; pointer-events:none; z-index:15; border:1px solid var(--ink); background:var(--paper); padding:6px; opacity:0; transition:opacity .15s}
+.peek img{display:block; width:100%; height:auto}
+.peek.on{opacity:1}
+
+/* ===== Essay ===== */
+.E{max-width:1240px; margin:0 auto; padding-block:40px 96px}
+.E-crumb{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; border-bottom:1px solid var(--rule); padding-bottom:8px}
+.E-title{display:grid; grid-template-columns:200px minmax(0,640px) minmax(0,1fr); gap:40px; margin-top:56px}
+.E-title h1{font-size:clamp(36px,5vw,58px); line-height:1.05; letter-spacing:-.01em}
+.E-title .dek{font-size:21px; font-style:italic; color:var(--ink-2); margin-top:18px; font-weight:300}
+.E-body{display:grid; grid-template-columns:200px minmax(0,640px) minmax(0,1fr); gap:20px 40px; margin-top:48px}
+.E-meta{grid-row:1 / span 20; font-family:var(--f-mono); font-size:12px; color:var(--ink-2); display:flex; flex-direction:column; gap:14px; align-self:start; position:sticky; top:calc(var(--chrome-h) + 64px)}
+.E-meta dl{margin:0; display:grid; gap:2px}
+.E-meta dt{color:var(--ink-3); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase}
+.E-meta dd{margin:0 0 8px}
+.E-body .para{grid-column:2; font-size:19px; line-height:1.62}
+.E-body .para.kr{font-size:18px; line-height:1.85}
+.E-body .para:first-of-type::first-letter{font-family:var(--f-display); float:left; font-size:3.4em; line-height:.82; padding:6px 8px 0 0}
+.E-body .side-note{grid-column:3; font-size:14px; line-height:1.5; color:var(--ink-2); border-top:1px solid var(--rule); padding-top:6px; max-width:280px; align-self:start}
+.E-body .side-note .num, sup.num{font-family:var(--f-mono); font-size:10px; color:var(--acc); font-weight:500}
+.E-body .pull{grid-column:2 / span 2; font-family:var(--f-display); font-size:clamp(26px,3vw,34px); line-height:1.25; padding-block:18px; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); margin-block:14px; font-weight:300}
+.E-body h2{grid-column:2; font-size:26px; margin-top:24px}
+.lang{display:flex; border:1px solid var(--ink); width:max-content}
+.lang button{font:inherit; background:transparent; color:var(--ink); border:0; padding:3px 10px; cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink); color:var(--paper)}
+
+/* ===== Figure / System ===== */
+.S{max-width:1240px; margin:0 auto; padding-block:40px 96px; display:flex; flex-direction:column; gap:56px}
+.S h2{font-size:34px; margin-bottom:6px}
+.S .sub{color:var(--ink-2); font-size:16px; max-width:44em}
+.S .sub.kr{font-size:15px}
+.figwrap{border:1px solid var(--rule); background:var(--paper); padding:18px; overflow-x:auto}
+.figwrap svg{display:block; width:100%; min-width:720px; height:auto}
+.figcap{font-size:14px; color:var(--ink-2); margin-top:10px; max-width:60em}
+.figcap b{font-weight:600; color:var(--ink)}
+.sw{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin-top:16px}
+.sw .chip{border:1px solid var(--rule); display:flex; flex-direction:column}
+.sw .chip .c{height:56px}
+.sw .chip .c.pair{display:grid; grid-template-columns:1fr 1fr}
+.sw .chip .lbl{padding:6px 8px; font-family:var(--f-mono); font-size:11px; display:flex; flex-direction:column; gap:1px}
+.sw .chip .lbl span{color:var(--ink-3)}
+.spec{display:grid; grid-template-columns:140px minmax(0,1fr); gap:18px 24px; align-items:baseline; margin-top:18px; border-top:1px solid var(--ink); padding-top:18px}
+.spec .k{font-family:var(--f-mono); font-size:11px; color:var(--ink-3); letter-spacing:.06em}
+.rulelist{margin:14px 0 0; padding-left:1.2em; font-family:var(--f-kr); font-size:15px; color:var(--ink-2); line-height:1.75; word-break:keep-all; max-width:56em}
+.rulelist b{color:var(--ink)}
+.cmp{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:16px}
+.cmp > div{border:1px solid var(--rule); padding:16px; display:flex; flex-direction:column; gap:10px}
+.cmp h3{font-size:20px}
+.cmp p{font-size:15px; color:var(--ink-2)}
+
+@media (max-width:980px){
+  .A-grid{grid-template-columns:minmax(0,1fr)}
+  .B{grid-template-columns:minmax(0,1fr); height:auto}
+  .B .col{overflow:visible; border-right:0; border-bottom:1px solid var(--rule)}
+  .E-title,.E-body{grid-template-columns:minmax(0,1fr)}
+  .E-meta{position:static; grid-row:auto; flex-direction:row; flex-wrap:wrap; gap:16px}
+  .E-body .para,.E-body .side-note,.E-body .pull,.E-body h2{grid-column:1}
+  .E-body .side-note{max-width:none; margin-left:24px}
+  .E-title > .spacer{display:none}
+  .C-intro{grid-template-columns:minmax(0,1fr)}
+  .cmp{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .tl li,.tl li.feature{grid-template-columns:minmax(0,1fr); gap:4px}
+  .idx .hide-s{display:none}
+  .C-top{grid-template-columns:minmax(0,1fr) auto}
+  .C-top .mid{display:none}
+  .spec{grid-template-columns:minmax(0,1fr); gap:4px}
+  .chrome-in{gap:8px 12px}
+}
+/* draft 02 additions */
+.A-sec + .A-sec{margin-top:64px}
+.tl .best{color:var(--acc)}
+.wr{list-style:none; margin:0; padding:0}
+.wr li{display:grid; grid-template-columns:92px minmax(0,1fr); gap:20px; padding-block:20px; border-bottom:1px solid var(--rule)}
+.wr .when{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); padding-top:8px}
+.wr h3{font-size:26px; line-height:1.2; font-style:italic; font-weight:300}
+.wr h3.kr{font-style:normal; font-weight:400; font-size:24px}
+.wr h3 a{text-decoration:none}
+.wr h3 a:hover{text-decoration:underline; text-decoration-color:var(--acc)}
+.wr .dek{font-size:16px; color:var(--ink-2); margin-top:6px; max-width:36em}
+.wr .langs{display:flex; gap:6px; margin-top:10px}
+.B .colhead.sub{position:static; margin-top:36px}
+.B .paper{display:grid; grid-template-columns:132px minmax(0,1fr); gap:16px; padding-bottom:20px; margin-bottom:20px; border-bottom:1px solid var(--rule)}
+.B .paper img{width:132px; max-width:100%; aspect-ratio:4/3; object-fit:cover; margin:2px 0 0; border:1px solid var(--rule); background:#fff}
+.B .paper h3{font-size:19px; line-height:1.25; margin:2px 0 4px}
+.B .paper .pv{font-family:var(--f-mono); font-size:11.5px; color:var(--ink-3)}
+.B .paper .pa{font-size:13.5px; color:var(--ink-2); line-height:1.45}
+.B .paper .pa b{color:var(--ink); font-weight:600}
+.B .paper .sum{font-size:14.5px; color:var(--ink-2); margin-top:6px}
+.B .paper .pl{font-family:var(--f-mono); font-size:11.5px; display:flex; gap:12px; margin-top:6px}
+.B .wl p{font-size:14.5px; color:var(--ink-2); margin-top:2px}
+.B .wl h4 a{text-decoration:none}
+.E-progress{height:3px; background:var(--rule); margin-top:-1px}
+.E-progress span{display:block; height:100%; width:0; background:var(--acc-bg)}
+:root[data-accent="ochre"] .E-progress span,:root[data-accent="butter"] .E-progress span{background:var(--acc)}
+.E-body .pull{position:relative; padding-left:48px}
+.E-body .pull::before{content:"\201C"; position:absolute; left:0; top:6px; font-family:var(--f-display); font-size:72px; line-height:1; color:var(--acc)}
+.E-body a.al{color:inherit; text-decoration:underline; text-decoration-color:var(--acc); text-decoration-thickness:2px; text-underline-offset:4px}
+.E-body h2 .sec{font-family:var(--f-mono); font-size:14px; color:var(--acc); vertical-align:4px; margin-right:6px}
+@media (max-width:640px){
+  .wr li{grid-template-columns:minmax(0,1fr); gap:4px}
+  .B .paper{grid-template-columns:96px minmax(0,1fr)}
+  .B .paper img{width:96px}
+}
+/* ===== draft 03: elements drawer ===== */
+.elbtn{font:inherit; font-size:11.5px; background:var(--acc-bg); color:var(--acc-ink); border:1px solid var(--ink); padding:4px 10px; border-radius:3px; cursor:pointer}
+.elbtn[aria-expanded="true"]{background:var(--ink); color:var(--paper)}
+.drawer{border-top:1px solid var(--rule); padding-block:10px 14px; max-height:min(60vh,520px); overflow-y:auto}
+.el-row{display:grid; grid-template-columns:96px max-content minmax(0,1fr); gap:6px 14px; align-items:center; padding-block:5px; border-bottom:1px dashed var(--rule)}
+.el-row:last-of-type{border-bottom:0}
+.el-row .lab{font-family:var(--f-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink)}
+.el-row .d{font-family:var(--f-kr); font-size:12.5px; color:var(--ink-3); line-height:1.45; word-break:keep-all}
+.el-actions{display:flex; gap:8px; margin-top:10px; font-family:var(--f-mono)}
+.el-actions button{font:inherit; font-size:11.5px; background:transparent; color:var(--ink); border:1px solid var(--ink); padding:4px 10px; border-radius:3px; cursor:pointer}
+@media (max-width:760px){ .el-row{grid-template-columns:minmax(0,1fr)} .el-row .seg{flex-wrap:wrap} }
+
+/* wordmark */
+.A-name i,.B-name i{font-style:italic}
+.wm-kr{font-family:var(--f-kr); font-size:.4em; color:var(--ink-3); margin-left:.35em; letter-spacing:0; vertical-align:.55em}
+.B-name .wm-kr{display:block; margin:10px 0 0; vertical-align:0; font-size:.45em}
+.wm-pose{display:inline-block; font-family:var(--f-mono); font-size:11px; line-height:1.5; color:var(--ink-3); margin-left:16px; vertical-align:top; letter-spacing:.04em; text-align:left; margin-top:.4em}
+.wm-pose b{color:var(--acc); font-weight:500}
+.B-name .wm-pose{display:block; margin:12px 0 0}
+
+/* dividers */
+:root[data-div="ruler"] :is(.A-secthead,.B .colhead,.E-crumb,.A-head){border-bottom-color:transparent; padding-bottom:16px; background:
+  repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 40px) left bottom/100% 10px no-repeat,
+  repeating-linear-gradient(90deg,var(--ink-3) 0 1px,transparent 1px 8px) left bottom/100% 5px no-repeat,
+  linear-gradient(var(--ink),var(--ink)) left bottom/100% 1px no-repeat, var(--paper)}
+:root[data-div="contact"] :is(.A-secthead,.B .colhead,.E-crumb,.A-head){border-bottom-color:transparent; padding-bottom:14px; background:
+  radial-gradient(circle,var(--ink) 0 2.5px,transparent 3px) 8px bottom/64px 7px repeat-x,
+  radial-gradient(circle,var(--acc-bg) 0 5px,transparent 5.5px) 8px bottom/192px 11px repeat-x,
+  linear-gradient(var(--ink),var(--ink)) left calc(100% - 3px)/100% 1px no-repeat, var(--paper)}
+:root[data-div="dotted"] :is(.A-secthead,.B .colhead,.E-crumb,.A-head){border-bottom-color:transparent; padding-bottom:12px; background:
+  radial-gradient(circle,var(--ink) 0 .9px,transparent 1.3px) left bottom/5px 3px repeat-x, var(--paper)}
+:root[data-div="dotted"] :is(.tl li,.wr li,.B .paper,.B .wl li){border-bottom-style:dotted}
+
+/* paper texture */
+:root[data-bg="dots"] body{background-image:radial-gradient(var(--rule) 1px,transparent 1.3px); background-size:16px 16px; background-attachment:fixed}
+:root[data-bg="graph"] body{background-image:linear-gradient(color-mix(in srgb,var(--rule) 55%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--rule) 55%,transparent) 1px,transparent 1px); background-size:24px 24px; background-attachment:fixed}
+:root[data-bg="margin"] body{background-image:linear-gradient(90deg,transparent calc(50% - 632px),var(--acc-bg) calc(50% - 632px),var(--acc-bg) calc(50% - 629px),transparent calc(50% - 629px)); background-attachment:fixed}
+:root[data-bg="margin"] .B .col:first-child{border-left:3px solid var(--acc-bg)}
+
+/* catalog codes */
+.code{display:none; font-family:var(--f-mono); font-size:11px; color:var(--acc); letter-spacing:.08em; margin-bottom:2px}
+:root[data-codes="on"] .code{display:block}
+:root[data-codes="on"] .E-crumb .code{display:inline; margin-left:12px}
+
+/* marginalia */
+.marg{display:none}
+:root[data-marg="on"] .marg{display:grid; grid-template-columns:auto minmax(0,1fr); gap:8px; margin-top:12px; font-size:15px; font-style:italic; color:var(--ink-2); max-width:36em; line-height:1.45}
+:root[data-marg="on"] .B .marg{font-size:13.5px}
+.marg::before{content:"\21B3"; font-style:normal; color:var(--acc); font-family:var(--f-mono)}
+.marg a{font-style:normal; font-family:var(--f-mono); font-size:11.5px; white-space:nowrap}
+
+/* images */
+:root[data-img="mono"] :is(.A,.B) img{filter:grayscale(1)}
+:root[data-img="mono"] :is(.A,.B) img:hover{filter:none}
+:root[data-img="duo"] :is(.A,.B) img{filter:grayscale(1) sepia(.55) saturate(2.2) hue-rotate(6deg) contrast(1.04)}
+:root[data-img="duo"] :is(.A,.B) img:hover{filter:none}
+:root[data-img="color"] :is(.A,.B) img{filter:none}
+
+/* dates */
+:root[data-dates="serif"] :is(.tl,.wr) li{grid-template-columns:128px minmax(0,1fr)}
+:root[data-dates="serif"] :is(.tl,.wr) .when{font-family:var(--f-display); font-size:34px; line-height:1; color:var(--ink); letter-spacing:-.01em; padding-top:0; font-variant-numeric:oldstyle-nums}
+:root[data-dates="serif"] .wr .when{font-size:22px; font-style:italic}
+:root[data-dates="serif"] .B .pv{font-family:var(--f-display); font-size:15px; font-style:italic; color:var(--ink-2)}
+
+/* grid overlay */
+#gov{position:fixed; inset:0; pointer-events:none; z-index:24; display:none}
+#gov div{height:100%; width:min(1180px,calc(100% - 32px)); margin:0 auto; background:linear-gradient(90deg,color-mix(in srgb,var(--c-cor) 28%,transparent) 0 1px,transparent 1px) 0 0/calc(100%/12) 100%; border-right:1px solid color-mix(in srgb,var(--c-cor) 28%,transparent)}
+:root[data-grid="on"] #gov{display:block}
+
+/* cursor */
+#xh{position:fixed; inset:0; pointer-events:none; z-index:26; display:none; overflow:hidden}
+:root[data-cursor="on"] #xh{display:block}
+:root[data-cursor="on"] body{cursor:crosshair}
+#xh .h{position:absolute; left:0; right:0; height:1px; background:color-mix(in srgb,var(--ink) 35%,transparent)}
+#xh .v{position:absolute; top:0; bottom:0; width:1px; background:color-mix(in srgb,var(--ink) 35%,transparent)}
+#xh .r{position:absolute; font-family:var(--f-mono); font-size:10.5px; background:var(--paper); color:var(--ink); border:1px solid var(--ink); padding:2px 6px; white-space:nowrap; font-variant-numeric:tabular-nums}
+#xh .p{position:absolute; width:12px; height:12px; margin:-6px 0 0 -6px; border:1.5px solid var(--acc); border-radius:50%; animation:pulse .7s ease-out forwards}
+@keyframes pulse{to{transform:scale(5); opacity:0}}
+@media (prefers-reduced-motion: reduce){ #xh .p{animation:none; opacity:0} }
+
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+
+<header class="chrome">
+  <div class="chrome-in">
+    <span class="brand">DL / DRAFT 03</span>
+    <div class="ctl"><span>Accent</span>
+      <div class="seg" role="group" aria-label="Accent">
+        <button id="acc-hl" data-set="accent" data-val="hl" aria-pressed="true">Highlighter</button>
+        <button id="acc-ochre" data-set="accent" data-val="ochre" aria-pressed="false">Ochre</button>
+        <button id="acc-butter" data-set="accent" data-val="butter" aria-pressed="false">Butter</button>
+      </div>
+    </div>
+    <div class="ctl"><span>Type</span>
+      <div class="seg" role="group" aria-label="Type set">
+        <button id="type-1" data-set="type" data-val="1" aria-pressed="true">I</button>
+        <button id="type-2" data-set="type" data-val="2" aria-pressed="false">II</button>
+        <button id="type-3" data-set="type" data-val="3" aria-pressed="false">III</button>
+      </div>
+    </div>
+    <div class="ctl"><span>Theme</span>
+      <div class="seg" role="group" aria-label="Theme">
+        <button id="th-light" data-set="theme" data-val="light" aria-pressed="true">Light</button>
+        <button id="th-dark" data-set="theme" data-val="dark" aria-pressed="false">Dark</button>
+      </div>
+    </div>
+    <div class="ctl"><button id="el-toggle" class="elbtn" aria-expanded="false" aria-controls="elements">Elements ▾</button></div>
+    <nav class="tabs" aria-label="Drafts">
+      <a href="#notebook" data-tab="notebook">A · Notebook</a>
+      <a href="#panels" data-tab="panels">B · Panels</a>
+      <a href="#essay" data-tab="essay">Essay page</a>
+      <a href="#figure" data-tab="figure">Figure system</a>
+      <a href="#system" data-tab="system">Palette &amp; type</a>
+    </nav>
+  </div>
+  <div id="elements" class="drawer" hidden><div id="el-rows"></div><div class="el-actions"><button id="el-shuffle">Shuffle</button><button id="el-reset">Reset</button></div></div>
+</header>
+<div id="gov" aria-hidden="true"><div></div></div>
+<div id="xh" aria-hidden="true"><div class="h"></div><div class="v"></div><div class="r"></div></div>
+
+<!-- ================= A ================= -->
+<section class="draft" id="d-notebook">
+  <div class="note"><p><b>3차: 위쪽 노란 Elements 버튼</b>을 누르면 이름 표기, 구분선, 배경 질감, 카탈로그 번호, 여백 메모, 이미지 처리, 날짜, 그리드, 커서를 하나씩 바꿔볼 수 있어요. A, B, Essay에 모두 적용돼요. Shuffle은 무작위 조합이에요.<br><b>A · Notebook (2차).</b> 피드백대로 <b>Research와 Writing을 별도 섹션으로 나눴어요.</b> 연구가 먼저 나오고, 아래 Writing은 날짜·제목·한 줄 요약·언어 표시로 구분된 다른 리듬을 가져요. 오른쪽 여백 칼럼에는 Now, 서울과 이타카 시계, 링크를 뒀어요. 위쪽 Accent, Type, Theme를 바꿔 가며 비교해 보세요. <span class="sample" style="margin:0">SAMPLE</span> 표시는 예시로 넣은 가짜 글이에요.</p></div>
+  <div class="pad"><div class="A">
+    <div class="A-head">
+      <h1 class="A-name wm" data-br=" ">Dohyeok Lee</h1>
+      <nav class="A-nav"><a href="#notebook">Research</a><a href="#essay">Writing</a><a href="#notebook">Notes</a><a href="#notebook">CV</a></nav>
+    </div>
+    <div class="A-meta mono"><span>Ph.D. student, ECE · Seoul National University</span><span>Visiting · Cornell University</span><span>Robot learning, contact-rich manipulation</span></div>
+    <div class="A-grid">
+      <div>
+        <p class="A-lede">I study how robots can <mark>learn the physical structure that governs interaction</mark>, instead of fitting correlations in data. I also write essays about research, tools, and the slow work of building things that touch the world.</p>
+        <section class="A-sec" aria-label="Research">
+        <div class="A-secthead"><span class="cap">Research</span><span class="mono" style="color:var(--ink-3)">Selected · <a href="#notebook">all publications →</a></span></div>
+        <ul class="tl">
+          <li class="feature">
+            <span class="when">2026</span>
+            <div>
+              <span class="code">R/26-03</span><h3>Learning Generalizable Visuomotor Policy through Dynamics-Alignment</h3>
+              <p class="who"><b>Dohyeok Lee</b>, Jung Min Lee, Munkyung Kim, Seokhun Ju, Jin Woo Koo, Kyungjae Lee, Dohyeong Kim, Taehyun Cho, Tapomayukh Bhattacharjee, Jungwoo Lee</p>
+              <p class="sum">A flow-matching policy and a dynamics model co-sample actions and future observations, correcting each other at every flow step. +56.5% over the strongest baseline in simulation, +33.3% in the real world.</p>
+              <p class="venue"><span>CoRL 2026</span><span>CVPR EAI Workshop 2025</span><a href="https://arxiv.org/abs/2510.27114">paper</a><a href="https://dynamics-aligned-policy.github.io/">website</a></p>
+              <p class="marg"><span>A policy should be judged by the future it causes, not only by how expert-like it looks. <a href="#essay">Essay: Physics is not a dataset →</a></span></p>
+              <div class="fig"><img src="img/dap.jpg" alt="DAP overview figure" loading="lazy"></div>
+            </div>
+          </li>
+          <li><span class="when">2026</span><div>
+              <span class="code">R/26-02</span><h3>MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction</h3>
+              <p class="who">Jung Min Lee, <b>Dohyeok Lee</b>, Seokhun Ju, Taehyun Cho, Jin Woo Koo, Li Zhao, Sangwoo Hong, Jungwoo Lee</p>
+              <p class="venue"><span>ICML 2026</span><span>NeurIPS SpaVLE Workshop 2025</span><a href="https://arxiv.org/abs/2602.03668">paper</a><a href="https://jm-this.github.io/mvp_lam/">website</a></p><p class="marg"><span>Viewpoint is a nuisance variable; the action is not. This paper is that sentence, made trainable.</span></p></div></li>
+          <li><span class="when">2026</span><div>
+              <span class="code">R/26-01</span><h3>TACTIC: Tactile and Vision Conditioned Contact-Centric Control for Whole-Arm Manipulation</h3>
+              <p class="who">Rishabh Madan, Angchen Xie, Samantha Saak, Andres Blanco, <b>Dohyeok Lee</b>, et al., Tapomayukh Bhattacharjee</p>
+              <p class="venue"><span>RSS 2026</span><span>paper</span><span>website</span></p><p class="marg"><span>The year I learned that skin is a sensor worth designing for. <a href="#notebook">Note: whole-arm contact →</a></span></p></div></li>
+          <li><span class="when">2025</span><div>
+              <span class="code">R/25-01</span><h3>Pareto Optimal Risk-Agnostic Distributional Bandits with Heavy-Tail Rewards</h3>
+              <p class="who">Kyungjae Lee, Dohyeong Kim, Taehyun Cho, Chaeyeon Kim, Yunkyung Ko, Seungyub Han, Seokhun Ju, <b>Dohyeok Lee</b>, Sungbin Lim</p>
+              <p class="venue"><span>NeurIPS 2025</span><span>paper</span></p></div></li>
+          <li><span class="when">2023</span><div>
+              <span class="code">R/23-02</span><h3>SPQR: Controlling Q-ensemble Independence with Spiked Random Model for Reinforcement Learning</h3>
+              <p class="who"><b>Dohyeok Lee</b>, Seungyub Han, Taehyun Cho, Jungwoo Lee</p>
+              <p class="venue"><span>NeurIPS 2023</span><span>paper</span><span>code</span></p></div></li>
+          <li><span class="when">2023</span><div>
+              <span class="code">R/23-01</span><h3>ARTificial Expressions: Human-Robot Interactive Drawing</h3>
+              <p class="who">Yejin Kim, <b>Dohyeok Lee</b></p>
+              <p class="venue"><span>CVPR Demo 2023</span><span class="best">Best Demo</span><span>code</span></p></div></li>
+        </ul>
+        </section>
+        <section class="A-sec A-writing" aria-label="Writing">
+        <div class="A-secthead"><span class="cap">Writing</span><span class="mono" style="color:var(--ink-3)">Essays &amp; notes · <a href="#essay">all writing →</a></span></div>
+        <ul class="wr">
+          <li><span class="when">Sep 2026</span><div><span class="code">W/26-03</span><h3><a href="#essay">Physics is not a dataset</a><span class="sample">SAMPLE</span></h3><p class="dek">Why laws of nature, not more demonstrations, may be the shortest path to robots that generalize.</p><p class="langs"><span class="tag">EN</span><span class="tag">KO</span></p></div></li>
+          <li><span class="when">May 2026</span><div><span class="code">W/26-02</span><h3 class="kr">이타카에서 보낸 첫 겨울<span class="sample">SAMPLE</span></h3><p class="dek">Notes from the first winter of a visiting year.</p><p class="langs"><span class="tag k-ko">KO only</span></p></div></li>
+          <li><span class="when">Feb 2026</span><div><span class="code">W/26-01</span><h3>On reading robotics papers backwards<span class="sample">SAMPLE</span></h3><p class="dek">Start from the failure videos. They tell you what the method actually learned.</p><p class="langs"><span class="tag">EN</span></p></div></li>
+        </ul>
+        </section>
+      </div>
+      <aside class="side">
+        <img class="ph" src="img/profile.jpg" alt="Portrait of Dohyeok Lee">
+        <div class="card"><span class="cap">Now</span><p>Visiting Prof. Tapomayukh Bhattacharjee's lab at Cornell. Thinking about contact, tactile sensing, and what a robot should predict before it moves.</p></div>
+        <div class="card"><span class="cap">Local time</span>
+          <div class="clock"><span>Seoul</span><span id="clk-seoul">--:--</span><span>Ithaca</span><span id="clk-ithaca">--:--</span></div></div>
+        <div class="card"><span class="cap">Elsewhere</span>
+          <ul class="mono"><li>dohyeoklee.kr@gmail.com</li><li><a href="https://scholar.google.com/citations?user=RcFFkMYAAAAJ">Google Scholar ↗</a></li><li><a href="https://github.com/dohyeoklee/">GitHub ↗</a></li><li><a href="https://www.linkedin.com/in/dohyeoklee/">LinkedIn ↗</a></li><li>CV (PDF)</li></ul></div>
+        <div class="card"><span class="cap">Keywords</span><p class="mono" style="color:var(--ink-2)">robot learning · contact-rich manipulation · visuomotor control · dynamics modeling · reinforcement learning</p></div>
+      </aside>
+    </div>
+  </div></div>
+</section>
+
+<!-- ================= B ================= -->
+<section class="draft" id="d-panels" hidden>
+  <div class="note"><p><b>B · Panels (2차).</b> 가운데 연구 칼럼의 <b>그림을 작은 썸네일로 줄이고</b> 학회, 제목, 저자, 요약, 링크가 보이게 했어요. <b>Short CV는 왼쪽 프로필 아래로</b> 옮겼고, 오른쪽은 Writing 전용이 됐어요. 세 칼럼은 각자 따로 스크롤돼요.</p></div>
+  <div class="B pad" style="padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))">
+    <div class="col">
+      <div class="colhead"><span class="cap">Profile</span><span class="cap" id="clk-b">SEOUL --:--</span></div>
+      <img class="portrait ph" src="img/profile.jpg" alt="Portrait of Dohyeok Lee">
+      <h1 class="B-name wm" data-br="<br>">Dohyeok<br>Lee</h1>
+      <div class="bio">
+        <p>Ph.D. student in Electrical and Computer Engineering at Seoul National University, advised by Prof. Jungwoo Lee. Visiting Cornell University with Prof. Tapomayukh Bhattacharjee.</p>
+        <p><mark>Can physical understanding become the foundation for generalizable robotic dexterity?</mark></p>
+        <p class="mono">Email / CV / Scholar / GitHub / LinkedIn</p>
+      </div>
+      <div class="colhead sub"><span class="cap">Short CV</span><span class="cap">PDF ↗</span></div>
+      <dl class="cv">
+        <dt>2024–</dt><dd>Ph.D., ECE, Seoul National University</dd>
+        <dt>2025–</dt><dd>Visiting Ph.D., Cornell University</dd>
+        <dt>2024</dt><dd>M.S., ECE, Seoul National University</dd>
+        <dt>2020</dt><dd>B.S., EE, KAIST</dd>
+        <dt>2020–21</dt><dd>Robotics Engineer, D.Hive</dd>
+        <dt>2019</dt><dd>Robotics Intern, Crazing Lab</dd>
+      </dl>
+      <div class="colhead sub"><span class="cap">Honors &amp; service</span><span></span></div>
+      <dl class="cv">
+        <dt>2023</dt><dd>CVPR Best Demo, ARTE</dd>
+        <dt>Review</dt><dd>NeurIPS 2025, 2026 · CoRL WS 2024 · ITW 2024</dd>
+      </dl>
+    </div>
+    <div class="col">
+      <div class="colhead"><span class="cap">Research</span><span class="cap">Selected</span></div>
+      <article class="paper"><img src="img/dap.jpg" alt="DAP figure" loading="lazy"><div>
+        <p class="pv">CoRL 2026 · CVPR EAI WS 2025</p>
+        <span class="code">R/26-03</span><h3>Learning Generalizable Visuomotor Policy through Dynamics-Alignment</h3>
+        <p class="pa"><b>Dohyeok Lee</b>, Jung Min Lee, Munkyung Kim, Seokhun Ju, Jin Woo Koo, Kyungjae Lee, Dohyeong Kim, Taehyun Cho, Tapomayukh Bhattacharjee, Jungwoo Lee</p>
+        <p class="sum">A flow-matching policy and a dynamics model correct each other at every flow step. +56.5% in simulation, +33.3% in the real world.</p>
+        <p class="pl"><a href="https://arxiv.org/abs/2510.27114">paper</a><a href="https://dynamics-aligned-policy.github.io/">website</a></p><p class="marg"><span>A policy should be judged by the future it causes, not only by how expert-like it looks. <a href="#essay">Essay: Physics is not a dataset →</a></span></p></div></article>
+      <article class="paper"><img src="img/mvplam.jpg" alt="MVP-LAM figure" loading="lazy"><div>
+        <p class="pv">ICML 2026 · NeurIPS SpaVLE WS 2025</p>
+        <span class="code">R/26-02</span><h3>MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction</h3>
+        <p class="pa">Jung Min Lee, <b>Dohyeok Lee</b>, Seokhun Ju, Taehyun Cho, Jin Woo Koo, Li Zhao, Sangwoo Hong, Jungwoo Lee</p>
+        <p class="sum">Cross-viewpoint reconstruction on synchronized multi-view video yields latent actions free of viewpoint-dependent change.</p>
+        <p class="pl"><a href="https://arxiv.org/abs/2602.03668">paper</a><a href="https://jm-this.github.io/mvp_lam/">website</a></p><p class="marg"><span>Viewpoint is a nuisance variable; the action is not. This paper is that sentence, made trainable.</span></p></div></article>
+      <article class="paper"><img src="img/tactic.jpg" alt="TACTIC figure" loading="lazy"><div>
+        <p class="pv">RSS 2026</p>
+        <span class="code">R/26-01</span><h3>TACTIC: Tactile and Vision Conditioned Contact-Centric Control for Whole-Arm Manipulation</h3>
+        <p class="pa">Rishabh Madan, Angchen Xie, Samantha Saak, Andres Blanco, <b>Dohyeok Lee</b>, et al., Tapomayukh Bhattacharjee</p>
+        <p class="sum">RGB-D, proximity and distributed tactile sensing with contact-aware MPC and hybrid dynamics.</p>
+        <p class="pl"><span>paper</span><span>website</span></p><p class="marg"><span>The year I learned that skin is a sensor worth designing for. <a href="#notebook">Note: whole-arm contact →</a></span></p></div></article>
+      <article class="paper"><img src="img/pareto.jpg" alt="DistLCB figure" loading="lazy"><div>
+        <p class="pv">NeurIPS 2025</p>
+        <span class="code">R/25-01</span><h3>Pareto Optimal Risk-Agnostic Distributional Bandits with Heavy-Tail Rewards</h3>
+        <p class="pa">Kyungjae Lee, Dohyeong Kim, Taehyun Cho, Chaeyeon Kim, Yunkyung Ko, Seungyub Han, Seokhun Ju, <b>Dohyeok Lee</b>, Sungbin Lim</p>
+        <p class="pl"><span>paper</span></p></div></article>
+      <article class="paper"><img src="img/spqr.jpg" alt="SPQR figure" loading="lazy"><div>
+        <p class="pv">NeurIPS 2023</p>
+        <span class="code">R/23-02</span><h3>SPQR: Controlling Q-ensemble Independence with Spiked Random Model for RL</h3>
+        <p class="pa"><b>Dohyeok Lee</b>, Seungyub Han, Taehyun Cho, Jungwoo Lee</p>
+        <p class="pl"><span>paper</span><span>code</span></p></div></article>
+    </div>
+    <div class="col">
+      <div class="colhead"><span class="cap">Writing</span><span class="cap">EN / KO</span></div>
+      <ul class="wl">
+        <li><span class="mono" style="color:var(--ink-3)">Sep 2026 · EN / KO</span><span class="sample">SAMPLE</span><span class="code">W/26-03</span><h4><a href="#essay">Physics is not a dataset</a></h4><p>Why laws of nature, not more demonstrations, may be the shortest path to robots that generalize.</p></li>
+        <li><span class="mono" style="color:var(--ink-3)">May 2026 · KO only</span><span class="sample">SAMPLE</span><span class="code">W/26-02</span><h4 class="kr">이타카에서 보낸 첫 겨울</h4><p>Notes from the first winter of a visiting year.</p></li>
+        <li><span class="mono" style="color:var(--ink-3)">Feb 2026 · EN</span><span class="sample">SAMPLE</span><span class="code">W/26-01</span><h4>On reading robotics papers backwards</h4><p>Start from the failure videos. They tell you what the method actually learned.</p></li>
+        <li><span class="mono" style="color:var(--ink-3)">Nov 2025 · EN / KO</span><span class="sample">SAMPLE</span><span class="code">W/25-02</span><h4>A drawing robot taught me about goals</h4><p>What ARTE, a CVPR demo, showed about conditioning a policy on intent.</p></li>
+        <li><span class="mono" style="color:var(--ink-3)">Jul 2025 · KO only</span><span class="sample">SAMPLE</span><span class="code">W/25-01</span><h4 class="kr">연구실 밖의 로봇</h4><p>On building a delivery robot before graduate school.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= Essay ================= -->
+<section class="draft" id="d-essay" hidden>
+  <div class="note"><p><b>Essay page (2차).</b> 강조색이 실제로 보이도록 <b>형광펜 문장, 위쪽 읽기 진행 바, 인용 따옴표, 본문 링크 밑줄, 섹션 번호(§), 사이드노트 번호</b>에 강조색을 넣었어요. 위쪽 Accent를 바꿔 가며 비교해 보세요. 텍스트를 드래그하면 선택 색도 바뀌어요. 본문은 Research Vision을 바탕으로 쓴 예시 글이에요.</p></div>
+  <div class="pad"><article class="E">
+    <div class="E-crumb mono"><span>Dohyeok Lee / Writing</span><span>No. 11<span class="code">W/26-03</span></span></div>
+    <div class="E-progress" aria-hidden="true"><span id="e-prog"></span></div>
+    <div class="E-title"><span class="spacer"></span>
+      <div>
+        <h1 data-en="Physics is not a dataset" data-ko="물리는 데이터셋이 아니다">Physics is not a dataset</h1>
+        <p class="dek" data-en="Robots should not merely fit correlations in data. They should learn the structure that governs interaction." data-ko="로봇은 데이터의 상관관계를 맞추는 데서 멈추면 안 된다. 상호작용을 지배하는 구조를 배워야 한다.">Robots should not merely fit correlations in data. They should learn the structure that governs interaction.</p>
+      </div>
+    </div>
+    <div class="E-body" id="essay-body">
+      <aside class="E-meta">
+        <dl><dt>Published</dt><dd>Sep 2026</dd><dt>Reading</dt><dd id="e-read">6 min</dd><dt>Topics</dt><dd>robot learning, physics</dd></dl>
+        <div><dt style="color:var(--ink-3);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px">Language</dt>
+          <div class="lang" role="group" aria-label="Language"><button id="l-en" data-lang="en" aria-pressed="true">EN</button><button id="l-ko" data-lang="ko" aria-pressed="false">KO</button></div></div>
+      </aside>
+      <p class="para" data-en="Language has a strange gift for robotics researchers: it arrives already compressed. Every sentence on the internet is someone's summary of the world. Physical interaction offers no such courtesy. A cup does not explain why it slips; it just slips, and the data we record is the residue of forces we never observe.<sup class='num'>1</sup>" data-ko="언어는 로봇 연구자에게 묘한 선물을 준다. 이미 압축된 채로 도착한다는 것이다. 인터넷의 모든 문장은 누군가가 세상을 요약한 결과다. 물리적 상호작용은 그런 친절을 베풀지 않는다. 컵은 왜 미끄러지는지 설명하지 않는다. 그냥 미끄러질 뿐이고, 우리가 기록하는 데이터는 끝내 관측하지 못한 힘들이 남긴 흔적이다.<sup class='num'>1</sup>">Language has a strange gift for robotics researchers: it arrives already compressed. Every sentence on the internet is someone's summary of the world. Physical interaction offers no such courtesy. A cup does not explain why it slips; it just slips, and the data we record is the residue of forces we never observe.<sup class="num">1</sup></p>
+      <aside class="side-note" data-en="<span class='num'>1</span> Contact forces are rarely measured directly in manipulation datasets. Most of what a policy sees is pixels and joint angles." data-ko="<span class='num'>1</span> 조작 데이터셋에서 접촉력을 직접 측정하는 경우는 드물다. 정책이 보는 것은 대부분 픽셀과 관절 각도다."><span class="num">1</span> Contact forces are rarely measured directly in manipulation datasets. Most of what a policy sees is pixels and joint angles.</aside>
+      <p class="para" data-en="But the slipping obeys something. Unlike language, interaction is governed by laws of nature, and laws are the one thing that holds outside the training distribution. <mark>A policy that learned the law instead of the pattern should fail more gracefully when the table changes.</mark>" data-ko="하지만 그 미끄러짐도 무언가를 따른다. 언어와 달리 상호작용은 자연법칙의 지배를 받고, 법칙은 학습 분포 바깥에서도 유지되는 유일한 것이다. <mark>패턴 대신 법칙을 배운 정책이라면 책상이 바뀌어도 더 우아하게 실패할 것이다.</mark>">But the slipping obeys something. Unlike language, interaction is governed by laws of nature, and laws are the one thing that holds outside the training distribution. <mark>A policy that learned the law instead of the pattern should fail more gracefully when the table changes.</mark></p>
+      <p class="pull" data-en="Laws are the only part of the data that keeps working after you leave the lab." data-ko="법칙은 실험실을 떠난 뒤에도 계속 작동하는 데이터의 유일한 부분이다.">Laws are the only part of the data that keeps working after you leave the lab.</p>
+      <h2><span class="sec">§1</span> <span data-en="Two questions" data-ko="두 가지 질문">Two questions</span></h2>
+      <p class="para" data-en="Two questions guide my work. How should we represent physics so that a learning system can use it? And how do we move from predicting what happens next to understanding why?<sup class='num'>2</sup> <a class='al' href='#notebook'>Dynamics models</a>, novel view synthesis, and contact-aware control are three attempts at answers." data-ko="두 가지 질문이 내 연구를 이끈다. 학습 시스템이 쓸 수 있도록 물리를 어떻게 표현할 것인가? 그리고 다음에 일어날 일을 예측하는 데서 그 이유를 이해하는 데로 어떻게 넘어갈 것인가?<sup class='num'>2</sup> <a class='al' href='#notebook'>동역학 모델</a>, 새로운 시점 합성, 접촉을 고려한 제어는 그 답을 찾으려는 세 가지 시도다.">Two questions guide my work. How should we represent physics so that a learning system can use it? And how do we move from predicting what happens next to understanding why?<sup class="num">2</sup> <a class="al" href="#notebook">Dynamics models</a>, novel view synthesis, and contact-aware control are three attempts at answers.</p>
+      <aside class="side-note" data-en="<span class='num'>2</span> In DAP, the policy and a dynamics model correct each other at every flow step, so a candidate action is judged by the future it would produce." data-ko="<span class='num'>2</span> DAP에서는 정책과 동역학 모델이 매 flow 단계마다 서로를 고친다. 그래서 후보 행동은 그것이 만들어낼 미래로 평가된다."><span class="num">2</span> In DAP, the policy and a dynamics model correct each other at every flow step, so a candidate action is judged by the future it would produce.</aside>
+      <p class="para" data-en="None of these is finished. But each one moves the robot a little closer to knowing what its hands are doing, which is, in the end, the whole job." data-ko="어느 것도 끝나지 않았다. 다만 하나하나가 로봇이 자기 손이 무엇을 하고 있는지 아는 쪽으로 조금씩 다가가게 한다. 결국 그것이 일의 전부다.">None of these is finished. But each one moves the robot a little closer to knowing what its hands are doing, which is, in the end, the whole job.</p>
+    </div>
+  </article></div>
+</section>
+
+<!-- ================= Figure ================= -->
+<section class="draft" id="d-figure" hidden>
+  <div class="note"><p><b>Figure system.</b> 논문 figure를 웹사이트와 <b>같은 팔레트, 같은 모노 폰트</b>로 그린 예시예요. π처럼 옅은 면(tint)과 진한 선(stroke)을 한 쌍으로 쓰고, 강조는 노랑 하나로만 해요. 테마를 Dark로 바꾸면 발표 슬라이드용 다크 버전도 확인할 수 있어요. 막대그래프 수치는 <b>스타일 예시용 임의 값</b>이에요.</p></div>
+  <div class="pad"><div class="S">
+    <div>
+      <h2>Fig. 1 · Dynamics-Aligned Policy</h2>
+      <p class="sub">Concept diagram drawn in the identity system. Mono labels, tint fills, one stroke color per role, yellow only for the thing the reader should look at.</p>
+      <div class="figwrap" style="margin-top:16px">
+        <svg viewBox="0 0 960 360" role="img" aria-label="DAP concept: policy and dynamics model co-sample action and future observation over flow steps">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker>
+            <marker id="ary" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--c-yel)"/></marker>
+            <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="var(--rule)"/></pattern>
+          </defs>
+          <rect x="0" y="0" width="960" height="360" fill="url(#dots)"/>
+          <g font-family="var(--f-mono)" font-size="12" fill="var(--ink)">
+            <!-- observation -->
+            <rect x="24" y="130" width="150" height="100" rx="8" fill="var(--c-gry-t)" stroke="var(--c-gry)" stroke-width="1.2"/>
+            <text x="99" y="158" text-anchor="middle" font-size="10.5" fill="var(--c-gry)" letter-spacing="1.2">OBSERVATION</text>
+            <text x="99" y="186" text-anchor="middle" font-size="15">o</text><text x="106" y="190" font-size="10">t</text>
+            <text x="99" y="212" text-anchor="middle" font-size="10.5" fill="var(--ink-2)">RGB · proprio</text>
+            <!-- flow loop container -->
+            <rect x="226" y="40" width="500" height="280" rx="12" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.2"/>
+            <text x="246" y="66" font-size="10.5" letter-spacing="1.2" fill="var(--ink-2)">FLOW STEP  τ = 0 → 1</text>
+            <!-- policy -->
+            <rect x="256" y="96" width="190" height="78" rx="8" fill="var(--c-ind-t)" stroke="var(--c-ind)" stroke-width="1.2"/>
+            <text x="351" y="124" text-anchor="middle" font-size="10.5" letter-spacing="1.2" fill="var(--c-ind)">POLICY</text>
+            <text x="351" y="150" text-anchor="middle" font-size="13">action  a<tspan baseline-shift="super" font-size="9">τ</tspan></text>
+            <!-- dynamics -->
+            <rect x="506" y="96" width="190" height="78" rx="8" fill="var(--c-tea-t)" stroke="var(--c-tea)" stroke-width="1.2"/>
+            <text x="601" y="124" text-anchor="middle" font-size="10.5" letter-spacing="1.2" fill="var(--c-tea)">DYNAMICS MODEL</text>
+            <text x="601" y="150" text-anchor="middle" font-size="13">future  ô<tspan baseline-shift="super" font-size="9">τ</tspan></text>
+            <!-- co-correction arrows -->
+            <path d="M446 122 C 476 108, 476 108, 504 122" fill="none" stroke="var(--ink)" stroke-width="1.2" marker-end="url(#ar)"/>
+            <path d="M506 150 C 476 164, 476 164, 448 150" fill="none" stroke="var(--ink)" stroke-width="1.2" marker-end="url(#ar)"/>
+            <!-- alignment highlight -->
+            <rect x="331" y="214" width="290" height="62" rx="8" fill="var(--c-yel-t)" stroke="var(--c-yel)" stroke-width="2"/>
+            <text x="476" y="240" text-anchor="middle" font-size="10.5" letter-spacing="1.2" fill="var(--c-yel)">ALIGNMENT</text>
+            <text x="476" y="262" text-anchor="middle" font-size="12.5">correct a<tspan baseline-shift="super" font-size="9">τ</tspan> and ô<tspan baseline-shift="super" font-size="9">τ</tspan> jointly</text>
+            <path d="M351 174 L 400 212" fill="none" stroke="var(--c-yel)" stroke-width="2" marker-end="url(#ary)"/>
+            <path d="M601 174 L 552 212" fill="none" stroke="var(--c-yel)" stroke-width="2" marker-end="url(#ary)"/>
+            <path d="M174 180 L 254 140" fill="none" stroke="var(--ink)" stroke-width="1.2" marker-end="url(#ar)"/>
+            <!-- output -->
+            <rect x="780" y="130" width="156" height="100" rx="8" fill="var(--c-cor-t)" stroke="var(--c-cor)" stroke-width="1.2"/>
+            <text x="858" y="158" text-anchor="middle" font-size="10.5" letter-spacing="1.2" fill="var(--c-cor)">EXECUTE</text>
+            <text x="858" y="186" text-anchor="middle" font-size="13">action chunk</text>
+            <text x="858" y="210" text-anchor="middle" font-size="10.5" fill="var(--ink-2)">a<tspan baseline-shift="sub" font-size="8">t</tspan> … a<tspan baseline-shift="sub" font-size="8">t+H</tspan></text>
+            <path d="M726 180 L 778 180" fill="none" stroke="var(--ink)" stroke-width="1.2" marker-end="url(#ar)"/>
+          </g>
+        </svg>
+      </div>
+      <p class="figcap"><b>Fig. 1.</b> Policy and dynamics model co-sample an action and the future it would produce, correcting each other at every flow step. Captions use the body serif; everything inside the figure uses the mono.</p>
+    </div>
+    <div>
+      <h2>Fig. 2 · Plot style</h2>
+      <p class="sub">Same palette for charts. Our method always takes the yellow-stroke color; baselines take muted greys and the categorical hues in a fixed order.</p>
+      <div class="figwrap" style="margin-top:16px">
+        <svg viewBox="0 0 960 300" role="img" aria-label="Illustrative grouped bar chart of success rate for four methods across three tasks">
+          <g font-family="var(--f-mono)" font-size="11" fill="var(--ink-2)">
+            <line x1="70" y1="40" x2="70" y2="250" stroke="var(--ink)" stroke-width="1"/>
+            <line x1="70" y1="250" x2="700" y2="250" stroke="var(--ink)" stroke-width="1"/>
+            <g stroke="var(--rule)" stroke-width="1"><line x1="70" y1="40" x2="700" y2="40"/><line x1="70" y1="92.5" x2="700" y2="92.5"/><line x1="70" y1="145" x2="700" y2="145"/><line x1="70" y1="197.5" x2="700" y2="197.5"/></g>
+            <text x="60" y="44" text-anchor="end">100</text><text x="60" y="149" text-anchor="end">50</text><text x="60" y="254" text-anchor="end">0</text>
+            <text x="20" y="150" transform="rotate(-90 20 150)" text-anchor="middle" letter-spacing="1">SUCCESS (%)</text>
+            <!-- groups: each bar 34 wide, value v -> height 2.1*v -->
+            <g>
+              <rect x="100" y="187" width="34" height="63" fill="var(--c-gry-t)" stroke="var(--c-gry)"/>
+              <rect x="138" y="166" width="34" height="84" fill="var(--c-ind-t)" stroke="var(--c-ind)"/>
+              <rect x="176" y="145" width="34" height="105" fill="var(--c-tea-t)" stroke="var(--c-tea)"/>
+              <rect x="214" y="82" width="34" height="168" fill="var(--c-yel-t)" stroke="var(--c-yel)" stroke-width="2"/>
+              <text x="174" y="272" text-anchor="middle" fill="var(--ink)">push-T</text>
+            </g>
+            <g>
+              <rect x="310" y="208" width="34" height="42" fill="var(--c-gry-t)" stroke="var(--c-gry)"/>
+              <rect x="348" y="176.5" width="34" height="73.5" fill="var(--c-ind-t)" stroke="var(--c-ind)"/>
+              <rect x="386" y="166" width="34" height="84" fill="var(--c-tea-t)" stroke="var(--c-tea)"/>
+              <rect x="424" y="103" width="34" height="147" fill="var(--c-yel-t)" stroke="var(--c-yel)" stroke-width="2"/>
+              <text x="384" y="272" text-anchor="middle" fill="var(--ink)">stack</text>
+            </g>
+            <g>
+              <rect x="520" y="218.5" width="34" height="31.5" fill="var(--c-gry-t)" stroke="var(--c-gry)"/>
+              <rect x="558" y="197.5" width="34" height="52.5" fill="var(--c-ind-t)" stroke="var(--c-ind)"/>
+              <rect x="596" y="187" width="34" height="63" fill="var(--c-tea-t)" stroke="var(--c-tea)"/>
+              <rect x="634" y="134.5" width="34" height="115.5" fill="var(--c-yel-t)" stroke="var(--c-yel)" stroke-width="2"/>
+              <text x="594" y="272" text-anchor="middle" fill="var(--ink)">real-world</text>
+            </g>
+            <!-- legend -->
+            <g transform="translate(740,70)" fill="var(--ink)">
+              <rect x="0" y="0" width="14" height="14" fill="var(--c-yel-t)" stroke="var(--c-yel)" stroke-width="2"/><text x="24" y="11">Ours</text>
+              <rect x="0" y="28" width="14" height="14" fill="var(--c-tea-t)" stroke="var(--c-tea)"/><text x="24" y="39">Baseline C</text>
+              <rect x="0" y="56" width="14" height="14" fill="var(--c-ind-t)" stroke="var(--c-ind)"/><text x="24" y="67">Baseline B</text>
+              <rect x="0" y="84" width="14" height="14" fill="var(--c-gry-t)" stroke="var(--c-gry)"/><text x="24" y="95">Baseline A</text>
+              <text x="0" y="140" fill="var(--ink-3)" font-size="10">values illustrative</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ================= System ================= -->
+<section class="draft" id="d-system" hidden>
+  <div class="note"><p><b>Palette &amp; type.</b> 지금 선택된 Accent, Type, Theme 조합의 견본이에요. 여기서 고른 값이 홈페이지, 논문 figure, 나중의 슬라이드까지 공통으로 쓰일 <b>브랜드 토큰 1차 후보</b>예요.</p></div>
+  <div class="pad"><div class="S">
+    <div>
+      <h2>Accent options</h2>
+      <p class="sub kr" style="font-family:var(--f-kr)">π는 채도 높은 앰버를 태그 같은 <b>면</b>으로 써요. 여기 세 안은 노랑을 다른 방식으로 써요.</p>
+      <div class="cmp">
+        <div><span class="cap">Highlighter</span><h3>Yellow as a <span class="hl" style="background:linear-gradient(transparent 52%,#F2E35A 52%,#F2E35A 92%,transparent 92%)">marker</span></h3><p class="kr" style="font-family:var(--f-kr)">형광펜처럼 글자 밑에만 칠해요. 글 쓰는 사람의 흔적처럼 보이고, 면으로 쓰지 않아서 π와 겹치지 않아요.</p></div>
+        <div><span class="cap">Ochre</span><h3>Yellow as <i style="color:#9C6A06">ink</i></h3><p class="kr" style="font-family:var(--f-kr)">어두운 황토색이라 글자, 선, figure 강조선에 다 쓸 수 있어요. 가장 차분하고 학술적인 느낌이에요.</p></div>
+        <div style="background:#FCF9E8;color:#16171A;border-color:#E4DCBC"><span class="cap" style="color:#7a744f">Butter</span><h3>Yellow as <u style="text-decoration-color:#3442A0;color:#3442A0">paper</u></h3><p class="kr" style="font-family:var(--f-kr);color:#4E4F4A">노랑을 배경 종이로 쓰고 강조는 인디고로 해요. 가장 독특하지만 figure 배경과 맞추기 어려워요.</p></div>
+      </div>
+    </div>
+    <div>
+      <h2>Palette</h2>
+      <p class="sub">Neutrals and the current accent. Swatches follow the theme toggle.</p>
+      <div class="sw">
+        <div class="chip"><div class="c" style="background:var(--paper);border-bottom:1px solid var(--rule)"></div><div class="lbl">paper<span>background</span></div></div>
+        <div class="chip"><div class="c" style="background:var(--paper-2)"></div><div class="lbl">paper-2<span>panels, hover</span></div></div>
+        <div class="chip"><div class="c" style="background:var(--rule)"></div><div class="lbl">rule<span>hairlines</span></div></div>
+        <div class="chip"><div class="c" style="background:var(--ink-3)"></div><div class="lbl">ink-3<span>meta</span></div></div>
+        <div class="chip"><div class="c" style="background:var(--ink-2)"></div><div class="lbl">ink-2<span>secondary text</span></div></div>
+        <div class="chip"><div class="c" style="background:var(--ink)"></div><div class="lbl">ink<span>text, strokes</span></div></div>
+        <div class="chip"><div class="c" style="background:var(--acc-bg)"></div><div class="lbl">accent fill<span>marker, selection</span></div></div>
+        <div class="chip"><div class="c" style="background:var(--acc)"></div><div class="lbl">accent ink<span>text-safe accent</span></div></div>
+      </div>
+      <p class="sub" style="margin-top:28px">Figure categories. Each is a pair: tint for fills, stroke for lines and labels. Order is fixed so a paper's figures and its slides always agree.</p>
+      <div class="sw">
+        <div class="chip"><div class="c pair"><div style="background:var(--c-yel-t)"></div><div style="background:var(--c-yel)"></div></div><div class="lbl">1 · yellow<span>ours / emphasis</span></div></div>
+        <div class="chip"><div class="c pair"><div style="background:var(--c-ind-t)"></div><div style="background:var(--c-ind)"></div></div><div class="lbl">2 · indigo<span>policy, model</span></div></div>
+        <div class="chip"><div class="c pair"><div style="background:var(--c-tea-t)"></div><div style="background:var(--c-tea)"></div></div><div class="lbl">3 · teal<span>dynamics, world</span></div></div>
+        <div class="chip"><div class="c pair"><div style="background:var(--c-cor-t)"></div><div style="background:var(--c-cor)"></div></div><div class="lbl">4 · coral<span>action, output</span></div></div>
+        <div class="chip"><div class="c pair"><div style="background:var(--c-plm-t)"></div><div style="background:var(--c-plm)"></div></div><div class="lbl">5 · plum<span>language, data</span></div></div>
+        <div class="chip"><div class="c pair"><div style="background:var(--c-sag-t)"></div><div style="background:var(--c-sag)"></div></div><div class="lbl">6 · sage<span>sensing, tactile</span></div></div>
+        <div class="chip"><div class="c pair"><div style="background:var(--c-gry-t)"></div><div style="background:var(--c-gry)"></div></div><div class="lbl">0 · grey<span>inputs, baselines</span></div></div>
+      </div>
+    </div>
+    <div>
+      <h2>Type</h2>
+      <p class="sub" id="type-name">Set I · Newsreader / IBM Plex Mono / Gowun Batang</p>
+      <div class="spec">
+        <span class="k">DISPLAY 64</span><span style="font-family:var(--f-display);font-size:clamp(36px,6vw,64px);line-height:1">Dohyeok Lee</span>
+        <span class="k">TITLE 28</span><span style="font-family:var(--f-display);font-size:28px;line-height:1.2">Learning Generalizable Visuomotor Policy through Dynamics-Alignment</span>
+        <span class="k">LEDE 24 LIGHT</span><span style="font-family:var(--f-body);font-size:24px;font-weight:300;line-height:1.4">Robots should learn the <i>physical structure</i> that governs interaction.</span>
+        <span class="k">BODY 18</span><span style="font-family:var(--f-body);font-size:18px;max-width:38em">Unlike language, physical interaction is governed by laws of nature, and these laws can provide a foundation for generalization beyond the training distribution.</span>
+        <span class="k">KOREAN 17</span><span class="kr" style="font-size:17px;line-height:1.8;max-width:38em">언어와 달리 물리적 상호작용은 자연법칙의 지배를 받고, 이 법칙은 학습 분포를 넘어서는 일반화의 토대가 될 수 있다.</span>
+        <span class="k">MONO 12</span><span class="mono">CoRL 2026 · paper · website · 2026-09-14 · a<tspan baseline-shift="sub" font-size="8">t</tspan> … a<tspan baseline-shift="sub" font-size="8">t+H</tspan> · 56.5%</span>
+        <span class="k">LABEL 11</span><span class="cap">Research &amp; writing · Now · Local time</span>
+      </div>
+    </div>
+    <div>
+      <h2>Rules so far</h2>
+      <ol class="rulelist">
+        <li><b>세리프는 생각, 모노는 사실.</b> 제목·본문·캡션은 세리프, 날짜·학회·라벨·figure 안 글자는 모노로 써요.</li>
+        <li><b>노랑은 한 페이지에 한 곳.</b> 웹에서는 핵심 문장 하나, figure에서는 "우리 방법" 하나에만 써요.</li>
+        <li><b>구분은 선으로.</b> 카드·그림자 대신 hairline으로 나눠요. 테두리는 강조할 한 요소에만 써요.</li>
+        <li><b>figure 색은 순서가 고정.</b> 회색(입력·베이스라인) → 노랑(우리) → 인디고 → 틸 → 코랄 → 플럼 → 세이지 순이에요.</li>
+        <li><b>사진은 흑백, 마우스를 올리면 컬러.</b> 페이지 전체 톤을 지키면서 작업물은 생생하게 보여줘요.</li>
+      </ol>
+    </div>
+  </div></div>
+</section>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function store(k,v){try{localStorage.setItem('dl-'+k,v)}catch(e){}}
+  function load(k){try{return localStorage.getItem('dl-'+k)}catch(e){return null}}
+  var typeNames={"1":"Set I · Newsreader / IBM Plex Mono / Gowun Batang","2":"Set II · Spectral / DM Mono / Nanum Myeongjo","3":"Set III · Literata / JetBrains Mono / Noto Serif KR"};
+  var EL=[
+    {k:'wm',lab:'Wordmark',opts:[['plain','Plain'],['italic','Italic Lee'],['kr','EN + 한글'],['pose','Coordinates']],d:'이름 표기 방식. 한글 이름을 병기하거나, 서울에서 이타카까지의 좌표를 붙여 이름 자체를 시그니처로 만들어요.'},
+    {k:'div',lab:'Divider',opts:[['hair','Hairline'],['ruler','Ruler'],['contact','Contact'],['dotted','Dotted']],d:'섹션 구분선. Ruler는 측정 눈금, Contact는 궤적 위의 접촉점에서 따온 모티프예요.'},
+    {k:'bg',lab:'Paper',opts:[['none','Plain'],['dots','Dot grid'],['graph','Graph'],['margin','Margin line']],d:'배경 질감. 점 격자는 figure 배경과 같고, 모눈은 실험 노트, 여백선은 공책에서 왔어요.'},
+    {k:'codes',lab:'Catalog no.',opts:[['off','Off'],['on','On']],d:'논문은 R/26-03, 글은 W/26-03 같은 고유 번호. 연구와 글을 하나의 카탈로그로 묶어요.'},
+    {k:'marg',lab:'Marginalia',opts:[['off','Off'],['on','On']],d:'논문 아래 짧은 메모와 관련 글 링크. 연구와 글을 잇는 장치예요 (예시 문장).'},
+    {k:'img',lab:'Images',opts:[['mono','Mono'],['duo','Duotone'],['color','Color']],d:'그림 처리. Mono와 Duotone은 마우스를 올리면 원래 색이 나와요.'},
+    {k:'dates',lab:'Dates',opts:[['mono','Mono'],['serif','Serif large']],d:'연도를 큰 세리프 숫자로 쓰면 목록에 리듬이 생겨요 (A 화면).'},
+    {k:'grid',lab:'Grid',opts:[['off','Off'],['on','On']],d:'12단 그리드 가이드를 드러내요. 설계도 같은 느낌이에요.'},
+    {k:'cursor',lab:'Cursor',opts:[['off','Off'],['on','On']],d:'마우스를 로봇 엔드이펙터처럼 십자선과 좌표로 보여주고, 클릭하면 접촉 파동이 퍼져요.'}
+  ];
+  var DEF={wm:'plain',div:'hair',bg:'none',codes:'off',marg:'off',img:'mono',dates:'mono',grid:'off',cursor:'off'};
+  var rows=document.getElementById('el-rows');
+  EL.forEach(function(e){
+    var r=document.createElement('div'); r.className='el-row';
+    r.innerHTML='<span class="lab">'+e.lab+'</span><div class="seg" role="group" aria-label="'+e.lab+'">'+e.opts.map(function(o){return '<button id="el-'+e.k+'-'+o[0]+'" data-set="'+e.k+'" data-val="'+o[0]+'" aria-pressed="false">'+o[1]+'</button>'}).join('')+'</div><span class="d">'+e.d+'</span>';
+    rows.appendChild(r);
+  });
+  var WM={
+    plain:function(b){return 'Dohyeok'+b+'Lee'},
+    italic:function(b){return 'Dohyeok'+b+'<i>Lee</i>'},
+    kr:function(b){return 'Dohyeok'+b+'Lee<span class="wm-kr">이도혁</span>'},
+    pose:function(b){return 'Dohyeok'+b+'Lee<span class="wm-pose"><b>●</b> 37.46°N 126.95°E Seoul<br>→ 42.45°N 76.48°W Ithaca</span>'}
+  };
+  function apply(set,val){
+    if(set==='accent'){ if(val==='hl') root.removeAttribute('data-accent'); else root.setAttribute('data-accent',val); }
+    else if(set==='type'){ if(val==='1') root.removeAttribute('data-type'); else root.setAttribute('data-type',val); var t=document.getElementById('type-name'); if(t) t.textContent=typeNames[val]; }
+    else { root.setAttribute('data-'+set,val); }
+    if(set==='wm'){ document.querySelectorAll('.wm').forEach(function(h){h.innerHTML=(WM[val]||WM.plain)(h.getAttribute('data-br'))}); }
+    document.querySelectorAll('[data-set="'+set+'"]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.val===val))});
+    store(set,val);
+  }
+  apply('accent',load('accent')||'hl');
+  apply('type',load('type')||'1');
+  apply('theme',load('theme')||'light');
+  Object.keys(DEF).forEach(function(k){ apply(k, load(k)||DEF[k]); });
+  document.querySelectorAll('[data-set]').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.set,b.dataset.val)})});
+  var tog=document.getElementById('el-toggle'), drw=document.getElementById('elements');
+  tog.addEventListener('click',function(){ drw.hidden=!drw.hidden; tog.setAttribute('aria-expanded',String(!drw.hidden)); tog.textContent=drw.hidden?'Elements ▾':'Elements ▴'; });
+  document.getElementById('el-reset').addEventListener('click',function(){ Object.keys(DEF).forEach(function(k){apply(k,DEF[k])}); });
+  document.getElementById('el-shuffle').addEventListener('click',function(){ EL.forEach(function(e){ if(e.k==='cursor'||e.k==='grid') return; apply(e.k, e.opts[Math.floor(Math.random()*e.opts.length)][0]); }); });
+
+  // cursor
+  var xh=document.getElementById('xh'), xhH=xh.querySelector('.h'), xhV=xh.querySelector('.v'), xhR=xh.querySelector('.r');
+  if(window.matchMedia('(hover:hover)').matches){
+    window.addEventListener('mousemove',function(e){
+      if(root.getAttribute('data-cursor')!=='on') return;
+      xhH.style.top=e.clientY+'px'; xhV.style.left=e.clientX+'px';
+      var x=(e.clientX/window.innerWidth).toFixed(3), y=(1-e.clientY/window.innerHeight).toFixed(3);
+      xhR.textContent='x '+x+'  y '+y;
+      xhR.style.left=Math.min(e.clientX+12, window.innerWidth-130)+'px'; xhR.style.top=Math.min(e.clientY+12, window.innerHeight-30)+'px';
+    },{passive:true});
+    window.addEventListener('mousedown',function(e){
+      if(root.getAttribute('data-cursor')!=='on') return;
+      var p=document.createElement('div'); p.className='p'; p.style.left=e.clientX+'px'; p.style.top=e.clientY+'px'; xh.appendChild(p);
+      setTimeout(function(){p.remove()},800);
+    });
+  }
+
+  // tabs
+  var tabs=['notebook','panels','essay','figure','system'];
+  function show(id){
+    if(tabs.indexOf(id)<0) id='notebook';
+    tabs.forEach(function(t){document.getElementById('d-'+t).hidden=(t!==id)});
+    document.querySelectorAll('[data-tab]').forEach(function(a){ if(a.dataset.tab===id) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  }
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1)); window.scrollTo(0,0)});
+  show(location.hash.slice(1));
+
+  // clocks
+  function fmt(tz){try{return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:tz}).format(new Date())}catch(e){return '--:--'}}
+  function tick(){
+    var s=fmt('Asia/Seoul'), i=fmt('America/New_York');
+    var a=document.getElementById('clk-seoul'); if(a) a.textContent=s;
+    var b=document.getElementById('clk-ithaca'); if(b) b.textContent=i;
+    var c=document.getElementById('clk-b'); if(c) c.textContent='Seoul '+s;
+  }
+  tick(); setInterval(tick,15000);
+
+  // essay reading progress
+  var prog=document.getElementById('e-prog'), art=document.querySelector('#d-essay .E');
+  function onScroll(){ if(!prog||!art||document.getElementById('d-essay').hidden) return;
+    var r=art.getBoundingClientRect(), total=r.height-window.innerHeight; var v=total>0?Math.min(1,Math.max(0,-r.top/total)):1; prog.style.width=(v*100).toFixed(1)+'%'; }
+  window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('hashchange',onScroll);
+
+  // essay language
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var l=b.dataset.lang;
+      document.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+      document.querySelectorAll('#d-essay [data-en]').forEach(function(el){
+        el.innerHTML=el.getAttribute('data-'+l);
+        el.classList.toggle('kr', l==='ko');
+      });
+      document.getElementById('e-read').textContent = l==='ko' ? '7분' : '6 min';
+    });
+  });
+})();
+</script>
