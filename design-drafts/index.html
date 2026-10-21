@@ -357,13 +357,136 @@ img.ph:hover{filter:none}
 #xh .p{position:absolute; width:12px; height:12px; margin:-6px 0 0 -6px; border:1.5px solid var(--acc); border-radius:50%; animation:pulse .7s ease-out forwards}
 @keyframes pulse{to{transform:scale(5); opacity:0}}
 @media (prefers-reduced-motion: reduce){ #xh .p{animation:none; opacity:0} }
+/* ===== draft 04 ===== */
+.el-group{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--acc); padding:12px 0 2px; border-bottom:1px solid var(--ink)}
+.el-group:first-child{padding-top:0}
+.el-group span{color:var(--ink-3); letter-spacing:0; text-transform:none; margin-left:10px; font-family:var(--f-kr); font-size:12px}
+
+/* hero */
+.A-statement,.A-plot,.A-name-kr{display:none}
+:root[data-hero="statement"] .A-statement{display:block; font-family:var(--f-display); font-weight:300; font-size:clamp(34px,5.6vw,76px); line-height:1.04; letter-spacing:-.015em; margin-bottom:40px; max-width:15em; text-wrap:balance}
+:root[data-hero="statement"] .A-statement i{font-style:italic}
+:root[data-hero="statement"] .A-name{font-size:clamp(26px,3vw,34px)}
+:root[data-hero="plotter"] .A-plot{display:block; margin-bottom:8px}
+.A-plot svg{display:block; width:100%; height:auto; overflow:visible}
+.A-plot .pl-path{fill:none; stroke:var(--ink); stroke-width:1.3; stroke-linecap:round}
+.A-plot .pl-ghost{fill:none; stroke:var(--rule); stroke-width:1; stroke-dasharray:3 5}
+.A-plot .pl-c{fill:var(--acc-bg); stroke:var(--ink); stroke-width:1}
+.A-plot text{font-family:var(--f-mono); font-size:10px; fill:var(--ink-3)}
+:root[data-hero="split"] .A-name-kr{display:block; font-family:var(--f-kr); font-size:clamp(36px,5.4vw,58px); line-height:1; color:var(--ink-2); order:2}
+:root[data-hero="split"] .A-head{display:grid; grid-template-columns:auto auto 1fr; align-items:baseline; gap:12px 36px}
+:root[data-hero="split"] .A-nav{justify-self:end; order:3}
+
+/* section labels */
+.A{counter-reset:sec}
+.A-sec{counter-increment:sec; position:relative}
+.B{counter-reset:col}
+.B .col{counter-increment:col}
+:root[data-sl="num"] .A-secthead > .cap::before{content:"§" counter(sec) "\00a0\00a0"; color:var(--acc)}
+:root[data-sl="num"] .B .colhead:first-child > .cap:first-child::before{content:"§" counter(col) "\00a0\00a0"; color:var(--acc)}
+:root[data-sl="bi"] .cap[data-kr]::after{content:"\00a0\00a0" attr(data-kr); font-family:var(--f-kr); letter-spacing:0; text-transform:none; font-size:12px; color:var(--ink-2)}
+@media (min-width:1320px){
+  :root[data-sl="vertical"] .A-secthead > .cap{position:absolute; left:-44px; top:0; writing-mode:vertical-rl; transform:rotate(180deg); font-family:var(--f-display); font-size:30px; letter-spacing:.02em; text-transform:none; color:var(--ink); line-height:1}
+}
+:root[data-sl="vertical"] .B .colhead:first-child > .cap:first-child{font-family:var(--f-display); font-size:20px; letter-spacing:0; text-transform:none; color:var(--ink)}
+
+/* paper format */
+.claim,.specdl{display:none}
+:root[data-pf="claim"] .claim{display:block; font-family:var(--f-display); font-size:24px; line-height:1.3; font-weight:300; margin:4px 0 8px; max-width:30em; text-wrap:balance}
+:root[data-pf="claim"] .B .claim{font-size:19px}
+:root[data-pf="claim"] :is(.tl,.B .paper) h3{font-family:var(--f-mono); font-size:13px !important; line-height:1.45; color:var(--ink-2); font-weight:400}
+:root[data-pf="claim"] :is(.tl,.B .paper) .sum{display:none}
+:root[data-pf="spec"] .specdl{display:grid; grid-template-columns:80px minmax(0,1fr); gap:0; margin:10px 0 4px; border-top:1px solid var(--ink); font-size:15px}
+:root[data-pf="spec"] .B .specdl{font-size:13.5px; grid-template-columns:64px minmax(0,1fr)}
+.specdl dt{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); padding:6px 0; border-bottom:1px solid var(--rule)}
+.specdl dd{margin:0; padding:5px 0; border-bottom:1px solid var(--rule); color:var(--ink-2)}
+.specdl dd.res{color:var(--ink)}
+:root[data-pf="spec"] :is(.tl,.B .paper) .sum{display:none}
+
+/* links */
+:root[data-ln="bracket"] .lk{text-decoration:none}
+:root[data-ln="bracket"] .lk::before{content:"["; color:var(--ink-3)}
+:root[data-ln="bracket"] .lk::after{content:"]"; color:var(--ink-3)}
+:root[data-ln="chip"] .lk{text-decoration:none; border:1px solid var(--ink); border-radius:999px; padding:0 8px; line-height:1.7}
+:root[data-ln="chip"] .lk::after{content:" \2197"}
+:root[data-ln="chip"] .lk:hover{background:var(--acc-bg); color:var(--acc-ink)}
+
+/* frames */
+:root[data-fr="plate"] .tl .fig{position:relative; padding:14px 14px 34px; background:var(--paper-2); border-color:var(--ink)}
+:root[data-fr="plate"] .tl .fig::after{content:attr(data-plate); position:absolute; left:14px; bottom:10px; font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-2)}
+:root[data-fr="plate"] :is(.B .paper img,.side img,.B .portrait){padding:6px; background:var(--paper-2); border:1px solid var(--ink)}
+:root[data-fr="crop"] :is(.tl .fig img,.B .paper img,.side img,.B .portrait){padding:9px; border:0; background:
+ linear-gradient(var(--ink),var(--ink)) left top/9px 1px no-repeat, linear-gradient(var(--ink),var(--ink)) left top/1px 9px no-repeat,
+ linear-gradient(var(--ink),var(--ink)) right top/9px 1px no-repeat, linear-gradient(var(--ink),var(--ink)) right top/1px 9px no-repeat,
+ linear-gradient(var(--ink),var(--ink)) left bottom/9px 1px no-repeat, linear-gradient(var(--ink),var(--ink)) left bottom/1px 9px no-repeat,
+ linear-gradient(var(--ink),var(--ink)) right bottom/9px 1px no-repeat, linear-gradient(var(--ink),var(--ink)) right bottom/1px 9px no-repeat; background-origin:border-box}
+:root[data-fr="crop"] .tl .fig{border:0; padding:0; background:transparent}
+
+/* marker */
+:root[data-mk="wavy"] mark{background:none; text-decoration:underline wavy var(--c-yel); text-decoration-thickness:1.5px; text-underline-offset:5px; color:inherit; font-style:normal}
+:root[data-mk="box"] mark{background:none; box-shadow:inset 0 0 0 1.5px var(--c-yel); border-radius:2px; padding:0 .2em; -webkit-box-decoration-break:clone; box-decoration-break:clone; color:inherit; font-style:normal; text-decoration:none}
+
+/* garden status */
+.gs{display:none}
+.gs-dt,.gs-dd{display:none}
+:root[data-gs="on"] :is(.gs-dt,.gs-dd){display:block}
+:root[data-gs="on"] .gs{display:flex; flex-wrap:wrap; gap:4px 12px; font-family:var(--f-mono); font-size:11px; color:var(--ink-3); margin-top:6px}
+.gs b{font-weight:500; color:var(--ink-2)}
+.gs .st{display:inline-flex; align-items:center; gap:5px}
+.gs .st::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--c-sag)}
+.gs .st.seed::before{background:transparent; border:1px solid var(--c-sag)}
+.gs .st.bud::before{background:linear-gradient(90deg,var(--c-sag) 50%,transparent 50%); border:1px solid var(--c-sag)}
+.gs .st.jr::before{background:var(--c-plm)}
+
+/* telemetry bar */
+#tele{display:none; background:var(--ink); color:var(--paper); font-family:var(--f-mono); font-size:11px; letter-spacing:.04em; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)); overflow-x:auto; white-space:nowrap}
+#tele .in{display:flex; gap:22px; padding-block:6px; font-variant-numeric:tabular-nums}
+#tele b{color:var(--acc-bg); font-weight:500}
+:root[data-accent="butter"] #tele b{color:#F6E58E}
+#tele .dot{display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--c-sag); margin-right:6px; vertical-align:1px}
+:root[data-sb="on"] #tele{display:block}
+:root[data-sb="on"][data-tab="figure"] #tele,:root[data-sb="on"][data-tab="system"] #tele{display:none}
+
+/* colophon */
+#colo{display:none}
+:root[data-co="on"] #colo{display:block}
+:root[data-co="on"][data-tab="figure"] #colo,:root[data-co="on"][data-tab="system"] #colo{display:none}
+.colo-in{max-width:1180px; margin:0 auto; padding-block:28px 56px; border-top:1px solid var(--ink); display:grid; grid-template-columns:140px minmax(0,1fr) auto; gap:16px 32px; font-size:15px; color:var(--ink-2)}
+.colo-in p{max-width:44em}
+.colo-sw{display:flex; gap:4px}
+.colo-sw i{width:18px; height:18px; border:1px solid var(--rule); display:block}
+@media (max-width:760px){ .colo-in{grid-template-columns:minmax(0,1fr)} }
+
+/* comments */
+.E-comments{grid-column:2 / span 2; margin-top:56px; border-top:1px solid var(--ink); padding-top:14px; display:flex; flex-direction:column; gap:22px; max-width:820px}
+.E-comments .hd{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px}
+.E-comments h2{font-size:26px; margin:0}
+.react{display:flex; gap:8px; flex-wrap:wrap}
+.react button{font-family:var(--f-mono); font-size:12px; background:transparent; color:var(--ink); border:1px solid var(--rule); border-radius:999px; padding:3px 10px; cursor:pointer}
+.react button[aria-pressed="true"]{background:var(--acc-bg); color:var(--acc-ink); border-color:var(--ink)}
+.cbox{border:1px solid var(--ink); background:var(--paper)}
+.cbox textarea{display:block; width:100%; min-height:96px; border:0; background:transparent; color:var(--ink); font-family:var(--f-body); font-size:17px; padding:12px 14px; resize:vertical}
+.cbox textarea:focus{outline:none}
+.cbox .bar{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; border-top:1px solid var(--rule); padding:8px 10px 8px 14px; font-family:var(--f-mono); font-size:11.5px; color:var(--ink-3)}
+.cbox .bar button{font:inherit; background:var(--ink); color:var(--paper); border:0; padding:6px 12px; cursor:pointer}
+.cmt{display:grid; grid-template-columns:36px minmax(0,1fr); gap:12px}
+.cmt .av{width:36px; height:36px; border-radius:50%; display:grid; place-items:center; font-family:var(--f-mono); font-size:12px; background:var(--c-ind-t); color:var(--c-ind); border:1px solid var(--c-ind)}
+.cmt .av.t{background:var(--c-tea-t); color:var(--c-tea); border-color:var(--c-tea)}
+.cmt .av.me{background:var(--acc-bg); color:var(--acc-ink); border-color:var(--ink)}
+.cmt .who{font-family:var(--f-mono); font-size:12px; color:var(--ink-2); display:flex; gap:10px; flex-wrap:wrap}
+.cmt .who b{color:var(--ink); font-weight:500}
+.cmt .tx{font-size:17px; line-height:1.55; margin-top:4px}
+.cmt .quote{font-size:14px; color:var(--ink-3); border-left:2px solid var(--acc-bg); padding-left:10px; margin-top:6px; font-style:italic}
+.cmt .reply{margin-top:16px}
+.cmt .acts{font-family:var(--f-mono); font-size:11px; color:var(--ink-3); margin-top:6px; display:flex; gap:12px}
+@media (max-width:980px){ .E-comments{grid-column:1} }
 
 @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
 </style>
 
 <header class="chrome">
   <div class="chrome-in">
-    <span class="brand">DL / DRAFT 03</span>
+    <span class="brand">DL / DRAFT 04</span>
     <div class="ctl"><span>Accent</span>
       <div class="seg" role="group" aria-label="Accent">
         <button id="acc-hl" data-set="accent" data-val="hl" aria-pressed="true">Highlighter</button>
@@ -395,15 +518,17 @@ img.ph:hover{filter:none}
   </div>
   <div id="elements" class="drawer" hidden><div id="el-rows"></div><div class="el-actions"><button id="el-shuffle">Shuffle</button><button id="el-reset">Reset</button></div></div>
 </header>
-<div id="gov" aria-hidden="true"><div></div></div>
-<div id="xh" aria-hidden="true"><div class="h"></div><div class="v"></div><div class="r"></div></div>
+<div id="tele" aria-hidden="false"><div class="in"><span><span class="dot"></span><b>STATE</b> visiting</span><span><b>POSE</b> 42.45°N 76.48°W · Ithaca</span><span><b>t</b> <span id="tele-t">--</span></span><span><b>READING</b> Moravec, <i>Mind Children</i></span><span><b>BUILDING</b> tactile skin for whole-arm contact</span><span style="color:var(--ink-3)">sample status</span></div></div>
 
 <!-- ================= A ================= -->
 <section class="draft" id="d-notebook">
-  <div class="note"><p><b>3차: 위쪽 노란 Elements 버튼</b>을 누르면 이름 표기, 구분선, 배경 질감, 카탈로그 번호, 여백 메모, 이미지 처리, 날짜, 그리드, 커서를 하나씩 바꿔볼 수 있어요. A, B, Essay에 모두 적용돼요. Shuffle은 무작위 조합이에요.<br><b>A · Notebook (2차).</b> 피드백대로 <b>Research와 Writing을 별도 섹션으로 나눴어요.</b> 연구가 먼저 나오고, 아래 Writing은 날짜·제목·한 줄 요약·언어 표시로 구분된 다른 리듬을 가져요. 오른쪽 여백 칼럼에는 Now, 서울과 이타카 시계, 링크를 뒀어요. 위쪽 Accent, Type, Theme를 바꿔 가며 비교해 보세요. <span class="sample" style="margin:0">SAMPLE</span> 표시는 예시로 넣은 가짜 글이에요.</p></div>
+  <div class="note"><p><b>4차: Elements가 16개로 늘었어요.</b> Identity(이름, 첫 화면, 섹션 라벨), Structure(논문 표현 방식, 날짜, 링크), Texture(구분선, 배경, 이미지, 액자, 형광펜), Writer(카탈로그 번호, 여백 메모, 글 상태, 상태 바, 콜로폰)로 묶었어요. Shuffle로 무작위 조합도 볼 수 있어요.<br><b>A · Notebook (2차).</b> 피드백대로 <b>Research와 Writing을 별도 섹션으로 나눴어요.</b> 연구가 먼저 나오고, 아래 Writing은 날짜·제목·한 줄 요약·언어 표시로 구분된 다른 리듬을 가져요. 오른쪽 여백 칼럼에는 Now, 서울과 이타카 시계, 링크를 뒀어요. 위쪽 Accent, Type, Theme를 바꿔 가며 비교해 보세요. <span class="sample" style="margin:0">SAMPLE</span> 표시는 예시로 넣은 가짜 글이에요.</p></div>
   <div class="pad"><div class="A">
+    <p class="A-statement">Can physical understanding become the foundation for <i>generalizable robotic dexterity?</i></p>
+    <div class="A-plot" aria-hidden="true"><svg id="plot" viewBox="0 0 1180 166"></svg></div>
     <div class="A-head">
       <h1 class="A-name wm" data-br=" ">Dohyeok Lee</h1>
+      <span class="A-name-kr">이도혁</span>
       <nav class="A-nav"><a href="#notebook">Research</a><a href="#essay">Writing</a><a href="#notebook">Notes</a><a href="#notebook">CV</a></nav>
     </div>
     <div class="A-meta mono"><span>Ph.D. student, ECE · Seoul National University</span><span>Visiting · Cornell University</span><span>Robot learning, contact-rich manipulation</span></div>
@@ -543,7 +668,7 @@ img.ph:hover{filter:none}
 
 <!-- ================= Essay ================= -->
 <section class="draft" id="d-essay" hidden>
-  <div class="note"><p><b>Essay page (2차).</b> 강조색이 실제로 보이도록 <b>형광펜 문장, 위쪽 읽기 진행 바, 인용 따옴표, 본문 링크 밑줄, 섹션 번호(§), 사이드노트 번호</b>에 강조색을 넣었어요. 위쪽 Accent를 바꿔 가며 비교해 보세요. 텍스트를 드래그하면 선택 색도 바뀌어요. 본문은 Research Vision을 바탕으로 쓴 예시 글이에요.</p></div>
+  <div class="note"><p><b>Essay page (4차).</b> 맨 아래에 <b>댓글(Responses)</b>을 추가했어요. 실제 사이트에서는 GitHub Discussions 기반의 giscus를 이 디자인에 맞춰 연결할 예정이에요. 지금은 모양만 보여주는 예시예요.<br>강조색이 실제로 보이도록 <b>형광펜 문장, 위쪽 읽기 진행 바, 인용 따옴표, 본문 링크 밑줄, 섹션 번호(§), 사이드노트 번호</b>에 강조색을 넣었어요. 위쪽 Accent를 바꿔 가며 비교해 보세요. 텍스트를 드래그하면 선택 색도 바뀌어요. 본문은 Research Vision을 바탕으로 쓴 예시 글이에요.</p></div>
   <div class="pad"><article class="E">
     <div class="E-crumb mono"><span>Dohyeok Lee / Writing</span><span>No. 11<span class="code">W/26-03</span></span></div>
     <div class="E-progress" aria-hidden="true"><span id="e-prog"></span></div>
@@ -555,7 +680,7 @@ img.ph:hover{filter:none}
     </div>
     <div class="E-body" id="essay-body">
       <aside class="E-meta">
-        <dl><dt>Published</dt><dd>Sep 2026</dd><dt>Reading</dt><dd id="e-read">6 min</dd><dt>Topics</dt><dd>robot learning, physics</dd></dl>
+        <dl><dt>Published</dt><dd>Sep 2026</dd><dt class="gs-dt">Status</dt><dd class="gs-dd"><span class="gs" style="margin:0"><span class="st">evergreen</span> confidence: likely</span></dd><dt>Reading</dt><dd id="e-read">6 min</dd><dt>Topics</dt><dd>robot learning, physics</dd></dl>
         <div><dt style="color:var(--ink-3);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px">Language</dt>
           <div class="lang" role="group" aria-label="Language"><button id="l-en" data-lang="en" aria-pressed="true">EN</button><button id="l-ko" data-lang="ko" aria-pressed="false">KO</button></div></div>
       </aside>
@@ -567,6 +692,26 @@ img.ph:hover{filter:none}
       <p class="para" data-en="Two questions guide my work. How should we represent physics so that a learning system can use it? And how do we move from predicting what happens next to understanding why?<sup class='num'>2</sup> <a class='al' href='#notebook'>Dynamics models</a>, novel view synthesis, and contact-aware control are three attempts at answers." data-ko="두 가지 질문이 내 연구를 이끈다. 학습 시스템이 쓸 수 있도록 물리를 어떻게 표현할 것인가? 그리고 다음에 일어날 일을 예측하는 데서 그 이유를 이해하는 데로 어떻게 넘어갈 것인가?<sup class='num'>2</sup> <a class='al' href='#notebook'>동역학 모델</a>, 새로운 시점 합성, 접촉을 고려한 제어는 그 답을 찾으려는 세 가지 시도다.">Two questions guide my work. How should we represent physics so that a learning system can use it? And how do we move from predicting what happens next to understanding why?<sup class="num">2</sup> <a class="al" href="#notebook">Dynamics models</a>, novel view synthesis, and contact-aware control are three attempts at answers.</p>
       <aside class="side-note" data-en="<span class='num'>2</span> In DAP, the policy and a dynamics model correct each other at every flow step, so a candidate action is judged by the future it would produce." data-ko="<span class='num'>2</span> DAP에서는 정책과 동역학 모델이 매 flow 단계마다 서로를 고친다. 그래서 후보 행동은 그것이 만들어낼 미래로 평가된다."><span class="num">2</span> In DAP, the policy and a dynamics model correct each other at every flow step, so a candidate action is judged by the future it would produce.</aside>
       <p class="para" data-en="None of these is finished. But each one moves the robot a little closer to knowing what its hands are doing, which is, in the end, the whole job." data-ko="어느 것도 끝나지 않았다. 다만 하나하나가 로봇이 자기 손이 무엇을 하고 있는지 아는 쪽으로 조금씩 다가가게 한다. 결국 그것이 일의 전부다.">None of these is finished. But each one moves the robot a little closer to knowing what its hands are doing, which is, in the end, the whole job.</p>
+      <section class="E-comments" aria-label="Responses">
+        <div class="hd"><h2>Responses <span class="mono" style="color:var(--ink-3)">(3)</span></h2><span class="mono" style="color:var(--ink-3)">via GitHub Discussions</span></div>
+        <div class="react" role="group" aria-label="Reactions">
+          <button id="r-agree" aria-pressed="false">+1 <span>12</span></button>
+          <button id="r-think" aria-pressed="false">made me think <span>5</span></button>
+          <button id="r-disagree" aria-pressed="false">disagree <span>2</span></button>
+        </div>
+        <div class="cbox"><label for="c-input" class="cap" style="display:block;padding:10px 14px 0">Write a response<span class="sample">SAMPLE UI</span></label>
+          <textarea id="c-input" placeholder="Quote a line, push back, or add a pointer."></textarea>
+          <div class="bar"><span>Markdown supported · sign in with GitHub</span><button type="button">Sign in to respond</button></div></div>
+        <div class="cmt"><span class="av">JK</span><div><p class="who"><b>jkim</b><span>2 days ago</span><span class="sample">SAMPLE</span></p>
+          <p class="quote">"Laws are the only part of the data that keeps working after you leave the lab."</p>
+          <p class="tx">Agree for rigid contact. For deformables I am less sure the law is learnable from the data we have. Would love a follow-up on cloth.</p>
+          <p class="acts"><span>reply</span><span>+1 4</span></p>
+          <div class="cmt reply"><span class="av me">DL</span><div><p class="who"><b>Dohyeok Lee</b><span>author · 1 day ago</span></p><p class="tx">Fair. Cloth is where I expect the structure to be a prior, not a law. Writing that one next.</p></div></div>
+        </div></div>
+        <div class="cmt"><span class="av t">MR</span><div><p class="who"><b>m-rivera</b><span>5 days ago</span><span class="sample">SAMPLE</span></p>
+          <p class="tx">The sidenote on contact forces is the real point. Most datasets do not even log them.</p>
+          <p class="acts"><span>reply</span><span>+1 7</span></p></div></div>
+      </section>
     </div>
   </article></div>
 </section>
@@ -735,6 +880,12 @@ img.ph:hover{filter:none}
   </div></div>
 </section>
 
+<footer id="colo" class="pad"><div class="colo-in">
+  <span class="cap">Colophon</span>
+  <p>Set in <span id="colo-type">Newsreader and IBM Plex Mono, with Gowun Batang for Korean</span>. Drawn on a newsprint grey with one yellow. Hand-built, hosted on GitHub Pages, comments through GitHub Discussions. Seoul 37.46°N 126.95°E, Ithaca 42.45°N 76.48°W. Last tended October 2026.</p>
+  <div class="colo-sw" aria-label="Palette"><i style="background:var(--paper)"></i><i style="background:var(--ink)"></i><i style="background:var(--acc-bg)"></i><i style="background:var(--c-ind)"></i><i style="background:var(--c-tea)"></i><i style="background:var(--c-cor)"></i><i style="background:var(--c-plm)"></i><i style="background:var(--c-sag)"></i></div>
+</div></footer>
+
 <script>
 (function(){
   var root=document.documentElement;
@@ -742,19 +893,31 @@ img.ph:hover{filter:none}
   function load(k){try{return localStorage.getItem('dl-'+k)}catch(e){return null}}
   var typeNames={"1":"Set I · Newsreader / IBM Plex Mono / Gowun Batang","2":"Set II · Spectral / DM Mono / Nanum Myeongjo","3":"Set III · Literata / JetBrains Mono / Noto Serif KR"};
   var EL=[
-    {k:'wm',lab:'Wordmark',opts:[['plain','Plain'],['italic','Italic Lee'],['kr','EN + 한글'],['pose','Coordinates']],d:'이름 표기 방식. 한글 이름을 병기하거나, 서울에서 이타카까지의 좌표를 붙여 이름 자체를 시그니처로 만들어요.'},
-    {k:'div',lab:'Divider',opts:[['hair','Hairline'],['ruler','Ruler'],['contact','Contact'],['dotted','Dotted']],d:'섹션 구분선. Ruler는 측정 눈금, Contact는 궤적 위의 접촉점에서 따온 모티프예요.'},
-    {k:'bg',lab:'Paper',opts:[['none','Plain'],['dots','Dot grid'],['graph','Graph'],['margin','Margin line']],d:'배경 질감. 점 격자는 figure 배경과 같고, 모눈은 실험 노트, 여백선은 공책에서 왔어요.'},
-    {k:'codes',lab:'Catalog no.',opts:[['off','Off'],['on','On']],d:'논문은 R/26-03, 글은 W/26-03 같은 고유 번호. 연구와 글을 하나의 카탈로그로 묶어요.'},
-    {k:'marg',lab:'Marginalia',opts:[['off','Off'],['on','On']],d:'논문 아래 짧은 메모와 관련 글 링크. 연구와 글을 잇는 장치예요 (예시 문장).'},
-    {k:'img',lab:'Images',opts:[['mono','Mono'],['duo','Duotone'],['color','Color']],d:'그림 처리. Mono와 Duotone은 마우스를 올리면 원래 색이 나와요.'},
-    {k:'dates',lab:'Dates',opts:[['mono','Mono'],['serif','Serif large']],d:'연도를 큰 세리프 숫자로 쓰면 목록에 리듬이 생겨요 (A 화면).'},
-    {k:'grid',lab:'Grid',opts:[['off','Off'],['on','On']],d:'12단 그리드 가이드를 드러내요. 설계도 같은 느낌이에요.'},
-    {k:'cursor',lab:'Cursor',opts:[['off','Off'],['on','On']],d:'마우스를 로봇 엔드이펙터처럼 십자선과 좌표로 보여주고, 클릭하면 접촉 파동이 퍼져요.'}
+    {g:'Identity',gd:'이름과 첫인상'},
+    {k:'wm',lab:'Wordmark',opts:[['plain','Plain'],['italic','Italic Lee'],['kr','EN + 한글'],['pose','Coordinates']],d:'이름 표기. 한글 병기, 또는 서울→이타카 좌표를 붙인 이름.'},
+    {k:'hero',lab:'Opening',opts:[['name','Name'],['statement','Question'],['plotter','Plotter line'],['split','EN | 한글']],d:'A의 첫 화면. 연구 질문을 크게, 드로잉 로봇처럼 그린 궤적 한 줄, 영문/한글 이름 나란히.'},
+    {k:'sl',lab:'Section label',opts:[['cap','Caps'],['num','§ Numbered'],['vertical','Vertical'],['bi','EN + 한글']],d:'섹션 이름 표시. 세로 라벨은 넓은 화면의 A에서 왼쪽 여백에 놓여요.'},
+    {g:'Structure',gd:'정보를 놓는 방식'},
+    {k:'pf',lab:'Paper format',opts:[['list','List'],['claim','Claim first'],['spec','Spec sheet']],d:'논문을 제목 대신 한 문장 주장으로 앞세우거나, 문제/아이디어/결과 데이터시트로 보여줘요 (주장 문장은 예시).'},
+    {k:'dates',lab:'Dates',opts:[['mono','Mono'],['serif','Serif large']],d:'연도를 큰 세리프 숫자로 쓰면 목록에 리듬이 생겨요.'},
+    {k:'ln',lab:'Links',opts:[['under','Underline'],['bracket','[Bracket]'],['chip','Chip ↗']],d:'paper, website, code 링크 모양.'},
+    {g:'Texture',gd:'종이와 잉크'},
+    {k:'div',lab:'Divider',opts:[['hair','Hairline'],['ruler','Ruler'],['contact','Contact'],['dotted','Dotted']],d:'섹션 구분선. 측정 눈금, 궤적 위 접촉점.'},
+    {k:'bg',lab:'Paper',opts:[['none','Plain'],['dots','Dot grid'],['graph','Graph'],['margin','Margin line']],d:'배경 질감. figure 점 격자, 실험 노트 모눈, 공책 여백선.'},
+    {k:'img',lab:'Images',opts:[['mono','Mono'],['duo','Duotone'],['color','Color']],d:'그림 처리. Mono와 Duotone은 마우스를 올리면 원래 색.'},
+    {k:'fr',lab:'Frame',opts:[['none','None'],['plate','Plate'],['crop','Crop marks']],d:'그림 액자. 도판(Plate) 번호를 붙이거나 인쇄용 재단선을 둘러요.'},
+    {k:'mk',lab:'Marker',opts:[['flat','Flat'],['wavy','Wavy'],['box','Box']],d:'형광펜 문장 표시 방식 (Highlighter 강조색 기준).'},
+    {g:'Writer',gd:'글 쓰는 사람의 도구'},
+    {k:'codes',lab:'Catalog no.',opts:[['off','Off'],['on','On']],d:'논문 R/26-03, 글 W/26-03 같은 고유 번호.'},
+    {k:'marg',lab:'Marginalia',opts:[['off','Off'],['on','On']],d:'논문 아래 짧은 메모와 관련 글 링크 (예시 문장).'},
+    {k:'gs',lab:'Garden status',opts:[['off','Off'],['on','On']],d:'글마다 상태(새싹/자라는 중/완성), 분량, 확신 정도를 표시. 글을 계속 다듬는 사람이라는 신호.'},
+    {k:'sb',lab:'Status bar',opts:[['off','Off'],['on','Telemetry']],d:'맨 위에 로봇 상태창처럼 STATE, POSE, 시각, 읽는 책, 만드는 것을 띄워요 (예시 내용).'},
+    {k:'co',lab:'Colophon',opts:[['off','Off'],['on','On']],d:'페이지 끝에 사용한 글꼴, 팔레트, 좌표, 마지막 수정일을 적어요.'}
   ];
-  var DEF={wm:'plain',div:'hair',bg:'none',codes:'off',marg:'off',img:'mono',dates:'mono',grid:'off',cursor:'off'};
+  var DEF={wm:'plain',hero:'name',sl:'cap',pf:'list',dates:'mono',ln:'under',div:'hair',bg:'none',img:'mono',fr:'none',mk:'flat',codes:'off',marg:'off',gs:'off',sb:'off',co:'off'};
   var rows=document.getElementById('el-rows');
   EL.forEach(function(e){
+    if(e.g){ var g=document.createElement('div'); g.className='el-group'; g.innerHTML=e.g+'<span>'+e.gd+'</span>'; rows.appendChild(g); return; }
     var r=document.createElement('div'); r.className='el-row';
     r.innerHTML='<span class="lab">'+e.lab+'</span><div class="seg" role="group" aria-label="'+e.lab+'">'+e.opts.map(function(o){return '<button id="el-'+e.k+'-'+o[0]+'" data-set="'+e.k+'" data-val="'+o[0]+'" aria-pressed="false">'+o[1]+'</button>'}).join('')+'</div><span class="d">'+e.d+'</span>';
     rows.appendChild(r);
@@ -781,30 +944,79 @@ img.ph:hover{filter:none}
   var tog=document.getElementById('el-toggle'), drw=document.getElementById('elements');
   tog.addEventListener('click',function(){ drw.hidden=!drw.hidden; tog.setAttribute('aria-expanded',String(!drw.hidden)); tog.textContent=drw.hidden?'Elements ▾':'Elements ▴'; });
   document.getElementById('el-reset').addEventListener('click',function(){ Object.keys(DEF).forEach(function(k){apply(k,DEF[k])}); });
-  document.getElementById('el-shuffle').addEventListener('click',function(){ EL.forEach(function(e){ if(e.k==='cursor'||e.k==='grid') return; apply(e.k, e.opts[Math.floor(Math.random()*e.opts.length)][0]); }); });
+  document.getElementById('el-shuffle').addEventListener('click',function(){ EL.forEach(function(e){ if(!e.k) return; apply(e.k, e.opts[Math.floor(Math.random()*e.opts.length)][0]); }); });
 
-  // cursor
-  var xh=document.getElementById('xh'), xhH=xh.querySelector('.h'), xhV=xh.querySelector('.v'), xhR=xh.querySelector('.r');
-  if(window.matchMedia('(hover:hover)').matches){
-    window.addEventListener('mousemove',function(e){
-      if(root.getAttribute('data-cursor')!=='on') return;
-      xhH.style.top=e.clientY+'px'; xhV.style.left=e.clientX+'px';
-      var x=(e.clientX/window.innerWidth).toFixed(3), y=(1-e.clientY/window.innerHeight).toFixed(3);
-      xhR.textContent='x '+x+'  y '+y;
-      xhR.style.left=Math.min(e.clientX+12, window.innerWidth-130)+'px'; xhR.style.top=Math.min(e.clientY+12, window.innerHeight-30)+'px';
-    },{passive:true});
-    window.addEventListener('mousedown',function(e){
-      if(root.getAttribute('data-cursor')!=='on') return;
-      var p=document.createElement('div'); p.className='p'; p.style.left=e.clientX+'px'; p.style.top=e.clientY+'px'; xh.appendChild(p);
-      setTimeout(function(){p.remove()},800);
-    });
-  }
+  // enrich papers and writing from catalog codes
+  var P={
+    'R/26-03':{c:'A policy should see the future its action creates, and let that future correct the action.',pr:'Generative BC policies never ask what scene a candidate action would produce.',id:'Co-sample actions and future observations; policy and dynamics model correct each other at every flow step.',rs:'+56.5% over the strongest baseline in simulation, +33.3% in the real world.',pl:'DAP, overview'},
+    'R/26-02':{c:'Latent actions become action-centric once the camera stops being part of the answer.',pr:'Latent actions learned from video are confounded by viewpoint changes.',id:'Cross-viewpoint reconstruction on synchronized multi-view video.',rs:'Better VLA pretraining on SIMPLER and LIBERO-Long.'},
+    'R/26-01':{c:'Whole-arm contact becomes controllable when touch, vision and proximity are read together.',pr:'Contact states and forces along the whole arm are only partially observed.',id:'RGB-D, proximity and distributed tactile sensing with contact-aware MPC.',rs:'Safer contact-rich whole-arm manipulation, sim and real.'},
+    'R/25-01':{c:'One bandit algorithm can be optimal for many risk measures at once, even under heavy tails.',pr:'Bandits with heavy-tailed rewards and differing risk preferences.',id:'Distributional LCB over Lipschitz risk measures.',rs:'Asymptotic optimality; Pareto-optimal multi-risk extension.'},
+    'R/23-02':{c:'Q-ensembles generalize better when their members are provably independent.',pr:'Ensemble Q-functions collapse toward each other and overfit.',id:'Independence regularization from random matrix theory.',rs:'Better out-of-distribution generalization across RL tasks.'},
+    'R/23-01':{c:'A drawing robot is a good test of whether a policy understands intent.',pr:'Open-ended goals in human-robot collaborative drawing.',id:'Multi-modal goal-conditioned policy.',rs:'CVPR 2023 Best Demo.'}
+  };
+  var G={
+    'W/26-03':'<span class="st">evergreen</span><span><b>1,820</b> words</span><span>revised Oct 2026</span>',
+    'W/26-02':'<span class="st jr">journal</span><span><b>2,400</b>자</span>',
+    'W/26-01':'<span class="st seed">seedling</span><span><b>900</b> words</span><span>still growing</span>',
+    'W/25-02':'<span class="st bud">budding</span><span><b>1,300</b> words</span>',
+    'W/25-01':'<span class="st jr">journal</span><span><b>3,100</b>자</span>'
+  };
+  document.querySelectorAll('.code').forEach(function(c){
+    var code=c.textContent.trim(), box=c.parentElement;
+    if(P[code] && box.querySelector('h3')){
+      var d=P[code], h=box.querySelector('h3');
+      h.insertAdjacentHTML('beforebegin','<p class="claim">'+d.c+'</p>');
+      var after=box.querySelector('.who,.pa')||h;
+      after.insertAdjacentHTML('afterend','<dl class="specdl"><dt>Problem</dt><dd>'+d.pr+'</dd><dt>Idea</dt><dd>'+d.id+'</dd><dt>Result</dt><dd class="res">'+d.rs+'</dd></dl>');
+      var fig=box.querySelector('.fig'); if(fig) fig.setAttribute('data-plate','PLATE '+code+' · '+(d.pl||'figure'));
+      box.querySelectorAll('.venue a,.pl a').forEach(function(a){a.classList.add('lk')});
+      box.querySelectorAll('.venue span,.pl span').forEach(function(sp){ if(/^(paper|website|code)$/.test(sp.textContent.trim())) sp.classList.add('lk'); });
+    }
+    if(G[code] && !box.classList.contains('E-crumb') && box.tagName!=='SPAN'){ box.insertAdjacentHTML('beforeend','<p class="gs">'+G[code]+'</p>'); }
+  });
+  var KR={'Research':'연구','Writing':'글','Profile':'프로필','Short CV':'약력','Honors & service':'수상 · 활동','Now':'지금','Local time':'현지 시각','Elsewhere':'링크','Keywords':'키워드'};
+  document.querySelectorAll('.cap').forEach(function(c){ var t=c.textContent.trim(); if(KR[t]) c.setAttribute('data-kr',KR[t]); });
+
+  // plotter line (seeded, deterministic)
+  (function(){
+    var svg=document.getElementById('plot'); if(!svg) return;
+    var seed=0; 'Dohyeok Lee'.split('').forEach(function(ch){seed=(seed*31+ch.charCodeAt(0))>>>0});
+    function rnd(){ seed=(seed*1664525+1013904223)>>>0; return seed/4294967296; }
+    var pts=[], y=88, n=16;
+    for(var q=0;q<n;q++){ var x=16+q*(1148/(n-1)); y=Math.max(22,Math.min(128,y+(rnd()-.5)*70)); pts.push([x,y]); }
+    function cr(p){ var d='M'+p[0][0].toFixed(1)+' '+p[0][1].toFixed(1);
+      for(var k=0;k<p.length-1;k++){ var p0=p[k-1]||p[k], p1=p[k], p2=p[k+1], p3=p[k+2]||p2;
+        d+=' C'+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+' '+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+' '+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+' '+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+' '+p2[0].toFixed(1)+' '+p2[1].toFixed(1); }
+      return d; }
+    var ghost=pts.map(function(p){return [p[0], p[1]+14]});
+    var html='<path class="pl-ghost" d="'+cr(ghost)+'"/><path class="pl-path" id="pl-path" d="'+cr(pts)+'"/>';
+    html+='<rect x="'+(pts[0][0]-4)+'" y="'+(pts[0][1]-4)+'" width="8" height="8" fill="var(--ink)"/>';
+    [3,8,12].forEach(function(ix,m){ var p=pts[ix]; html+='<circle class="pl-c" cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="5"/><text x="'+(p[0]+9).toFixed(1)+'" y="'+(p[1]+(p[1]>75?-12:22)).toFixed(1)+'">contact '+(m+1)+' · t='+(ix/(n-1)).toFixed(2)+'</text>'; });
+    var e=pts[n-1]; html+='<text x="1176" y="160" text-anchor="end">end-effector path, seeded by name</text>';
+    svg.innerHTML=html;
+    var path=document.getElementById('pl-path');
+    function draw(){ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; var L=path.getTotalLength(); path.style.transition='none'; path.style.strokeDasharray=L; path.style.strokeDashoffset=L; path.getBoundingClientRect(); path.style.transition='stroke-dashoffset 2.4s ease-in-out'; path.style.strokeDashoffset=0; }
+    window.__drawPlot=draw;
+  })();
+  var _apply=apply;
+  apply=function(set,val){ _apply(set,val); if(set==='hero'&&val==='plotter'&&window.__drawPlot) window.__drawPlot(); if(set==='type'){var ct=document.getElementById('colo-type'); if(ct) ct.textContent={"1":"Newsreader and IBM Plex Mono, with Gowun Batang for Korean","2":"Spectral and DM Mono, with Nanum Myeongjo for Korean","3":"Literata and JetBrains Mono, with Noto Serif KR for Korean"}[val];} };
+  document.querySelectorAll('[data-set]').forEach(function(b){ b.addEventListener('click',function(){ if(b.dataset.set==='hero'&&b.dataset.val==='plotter'&&window.__drawPlot) window.__drawPlot(); }); });
+  apply('type',load('type')||'1');
+
+  // telemetry clock
+  function tele(){ var el=document.getElementById('tele-t'); if(!el) return; try{ el.textContent=new Intl.DateTimeFormat('en-CA',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/New_York'}).format(new Date()).replace(',','')+' EDT'; }catch(e){} }
+  tele(); setInterval(tele,30000);
+
+  // reactions (local only)
+  document.querySelectorAll('.react button').forEach(function(b){ b.addEventListener('click',function(){ var on=b.getAttribute('aria-pressed')!=='true'; b.setAttribute('aria-pressed',String(on)); var n=b.querySelector('span'); n.textContent=String(+n.textContent+(on?1:-1)); }); });
 
   // tabs
   var tabs=['notebook','panels','essay','figure','system'];
   function show(id){
     if(tabs.indexOf(id)<0) id='notebook';
     tabs.forEach(function(t){document.getElementById('d-'+t).hidden=(t!==id)});
+    root.setAttribute('data-tab',id);
     document.querySelectorAll('[data-tab]').forEach(function(a){ if(a.dataset.tab===id) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   }
   window.addEventListener('hashchange',function(){show(location.hash.slice(1)); window.scrollTo(0,0)});
