@@ -134,11 +134,13 @@ img.ph:hover{filter:none}
 
 /* ===== B: Panels ===== */
 .B{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr); height:calc(100vh - 140px); min-height:560px; border-bottom:1px solid var(--rule)}
-.B .col{scrollbar-width:thin; scrollbar-color:var(--ink) transparent;}
-.B .col::-webkit-scrollbar{width:4px}
-.B .col::-webkit-scrollbar-track{background:transparent}
-.B .col::-webkit-scrollbar-thumb{background:var(--ink)}
-.B .col::-webkit-scrollbar-button{display:none; height:0}
+/* slim scrollbars: page (A, essay) and B columns. Chromium/Safari use the pseudo-elements (no arrow buttons); Firefox falls back to thin. */
+:is(html,.B .col,.drawer)::-webkit-scrollbar{width:2px; height:2px}
+:is(html,.B .col,.drawer)::-webkit-scrollbar-track{background:transparent}
+:is(html,.B .col,.drawer)::-webkit-scrollbar-thumb{background:var(--ink); border-radius:0}
+:is(html,.B .col,.drawer)::-webkit-scrollbar-button{display:none; width:0; height:0}
+:is(html,.B .col,.drawer)::-webkit-scrollbar-corner{background:transparent}
+@supports not selector(::-webkit-scrollbar){ :is(html,.B .col,.drawer){scrollbar-width:thin; scrollbar-color:var(--ink) transparent} }
 .B .col{overflow-y:auto; padding:18px 18px 40px; border-right:1px solid var(--rule); min-width:0}
 .B .col:last-child{border-right:0}
 .B .colhead{display:flex; justify-content:space-between; position:sticky; top:-18px; background:var(--paper); padding:18px 0 8px; margin-top:-18px; border-bottom:1px solid var(--ink); margin-bottom:16px; z-index:1}
