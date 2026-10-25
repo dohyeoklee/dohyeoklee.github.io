@@ -134,6 +134,11 @@ img.ph:hover{filter:none}
 
 /* ===== B: Panels ===== */
 .B{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr); height:calc(100vh - 140px); min-height:560px; border-bottom:1px solid var(--rule)}
+.B .col{scrollbar-width:thin; scrollbar-color:var(--ink) transparent;}
+.B .col::-webkit-scrollbar{width:4px}
+.B .col::-webkit-scrollbar-track{background:transparent}
+.B .col::-webkit-scrollbar-thumb{background:var(--ink)}
+.B .col::-webkit-scrollbar-button{display:none; height:0}
 .B .col{overflow-y:auto; padding:18px 18px 40px; border-right:1px solid var(--rule); min-width:0}
 .B .col:last-child{border-right:0}
 .B .colhead{display:flex; justify-content:space-between; position:sticky; top:-18px; background:var(--paper); padding:18px 0 8px; margin-top:-18px; border-bottom:1px solid var(--ink); margin-bottom:16px; z-index:1}
@@ -679,8 +684,6 @@ table.data tr.ours td{background:color-mix(in srgb,var(--acc-bg) 40%,transparent
       <aside class="side">
         <img class="ph" src="img/profile.jpg" alt="Portrait of Dohyeok Lee">
         <div class="card"><span class="cap">Now</span><p>Visiting Prof. Tapomayukh Bhattacharjee's lab at Cornell. Thinking about contact, tactile sensing, and what a robot should predict before it moves.</p></div>
-        <div class="card"><span class="cap">Local time</span>
-          <div class="clock"><span>Seoul</span><span id="clk-seoul">--:--</span><span>Ithaca</span><span id="clk-ithaca">--:--</span></div></div>
         <div class="card"><span class="cap">Elsewhere</span>
           <ul class="mono"><li>dohyeoklee.kr@gmail.com</li><li><a href="https://scholar.google.com/citations?user=RcFFkMYAAAAJ">Google Scholar ↗</a></li><li><a href="https://github.com/dohyeoklee/">GitHub ↗</a></li><li><a href="https://www.linkedin.com/in/dohyeoklee/">LinkedIn ↗</a></li><li>CV (PDF)</li></ul></div>
         <div class="card"><span class="cap">Keywords</span><p class="mono" style="color:var(--ink-2)">robot learning · contact-rich manipulation · visuomotor control · dynamics modeling · reinforcement learning</p></div>
@@ -694,7 +697,7 @@ table.data tr.ours td{background:color-mix(in srgb,var(--acc-bg) 40%,transparent
   <div class="note"><p><b>B · Panels (6차).</b> 넓은 화면에서는 <b>사진 옆에 이름</b>이 오고, 칼럼이 좁아지면 사진 아래로 내려가요. 오른쪽 위에 <b>밝은/어두운 화면 스위치</b>를 넣었어요(A, Essay에도 있어요).<br><b>2차:</b> 가운데 연구 칼럼의 <b>그림을 작은 썸네일로 줄이고</b> 학회, 제목, 저자, 요약, 링크가 보이게 했어요. <b>Short CV는 왼쪽 프로필 아래로</b> 옮겼고, 오른쪽은 Writing 전용이 됐어요. 세 칼럼은 각자 따로 스크롤돼요.</p></div>
   <div class="B pad" style="padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))">
     <div class="col">
-      <div class="colhead"><span class="cap">Profile</span><span class="cap" id="clk-b">SEOUL --:--</span></div>
+      <div class="colhead"><span class="cap">Profile</span></div>
       <div class="B-id"><img class="portrait ph" src="img/profile.jpg" alt="Portrait of Dohyeok Lee">
       <h1 class="B-name wm" data-br="<br>">Dohyeok<br>Lee</h1></div>
       <div class="bio">
@@ -1037,7 +1040,7 @@ c-10,0,-16.667,5,-20,15z M410 15 H367 v585 v0 v585 h43z'/></svg></span></span></
         <span class="k">BODY 18</span><span style="font-family:var(--f-body);font-size:18px;max-width:38em">Unlike language, physical interaction is governed by laws of nature, and these laws can provide a foundation for generalization beyond the training distribution.</span>
         <span class="k">KOREAN 17</span><span class="kr" style="font-size:17px;line-height:1.8;max-width:38em">언어와 달리 물리적 상호작용은 자연법칙의 지배를 받고, 이 법칙은 학습 분포를 넘어서는 일반화의 토대가 될 수 있다.</span>
         <span class="k">MONO 12</span><span class="mono">CoRL 2026 · paper · website · 2026-09-14 · a<tspan baseline-shift="sub" font-size="8">t</tspan> … a<tspan baseline-shift="sub" font-size="8">t+H</tspan> · 56.5%</span>
-        <span class="k">LABEL 11</span><span class="cap">Research &amp; writing · Now · Local time</span>
+        <span class="k">LABEL 11</span><span class="cap">Research &amp; writing · Now · Elsewhere</span>
       </div>
     </div>
     <div>
@@ -1055,7 +1058,7 @@ c-10,0,-16.667,5,-20,15z M410 15 H367 v585 v0 v585 h43z'/></svg></span></span></
 
 <footer id="colo" class="pad"><div class="colo-in">
   <span class="cap">Colophon</span>
-  <p>Set in <span id="colo-type">Newsreader and IBM Plex Mono, with Gowun Batang for Korean</span>. Drawn on a newsprint grey with one yellow. Hand-built, hosted on GitHub Pages, comments through GitHub Discussions. Seoul 37.46°N 126.95°E, Ithaca 42.45°N 76.48°W. Last tended October 2026.</p>
+  <p>Set in <span id="colo-type">Newsreader and IBM Plex Mono, with Gowun Batang for Korean</span>. Drawn on a newsprint grey with one yellow. Hand-built, hosted on GitHub Pages, comments through GitHub Discussions. Last tended October 2026.</p>
   <div class="colo-sw" aria-label="Palette"><i style="background:var(--paper)"></i><i style="background:var(--ink)"></i><i style="background:var(--acc-bg)"></i><i style="background:var(--c-ind)"></i><i style="background:var(--c-tea)"></i><i style="background:var(--c-cor)"></i><i style="background:var(--c-plm)"></i><i style="background:var(--c-sag)"></i></div>
 </div></footer>
 
