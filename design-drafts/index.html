@@ -134,13 +134,14 @@ img.ph:hover{filter:none}
 
 /* ===== B: Panels ===== */
 .B{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr); height:calc(100vh - 140px); min-height:560px; border-bottom:1px solid var(--rule)}
-/* slim scrollbars: page (A, essay) and B columns. Chromium/Safari use the pseudo-elements (no arrow buttons); Firefox falls back to thin. */
-:is(html,.B .col,.drawer)::-webkit-scrollbar{width:2px; height:2px}
-:is(html,.B .col,.drawer)::-webkit-scrollbar-track{background:transparent}
-:is(html,.B .col,.drawer)::-webkit-scrollbar-thumb{background:var(--ink); border-radius:0}
-:is(html,.B .col,.drawer)::-webkit-scrollbar-button{display:none; width:0; height:0}
-:is(html,.B .col,.drawer)::-webkit-scrollbar-corner{background:transparent}
-@supports not selector(::-webkit-scrollbar){ :is(html,.B .col,.drawer){scrollbar-width:thin; scrollbar-color:var(--ink) transparent} }
+/* custom scrollbars: native bars hidden, one fixed-size 3px thumb drawn for the page, each B column and the drawer */
+:is(html,body,.B .col,.drawer){scrollbar-width:none}
+:is(html,body,.B .col,.drawer)::-webkit-scrollbar{display:none; width:0; height:0}
+.sbar{position:fixed; width:13px; z-index:40; pointer-events:none}
+.sbar[hidden]{display:none}
+.sbar .th{position:absolute; right:5px; width:3px; height:56px; background:var(--ink); pointer-events:auto; cursor:grab; touch-action:none}
+.sbar .th::before{content:""; position:absolute; inset:-4px -6px}
+.sbar .th:active{cursor:grabbing}
 .B .col{overflow-y:auto; padding:18px 18px 40px; border-right:1px solid var(--rule); min-width:0}
 .B .col:last-child{border-right:0}
 .B .colhead{display:flex; justify-content:space-between; position:sticky; top:-18px; background:var(--paper); padding:18px 0 8px; margin-top:-18px; border-bottom:1px solid var(--ink); margin-bottom:16px; z-index:1}
@@ -1251,6 +1252,49 @@ c-10,0,-16.667,5,-20,15z M410 15 H367 v585 v0 v585 h43z'/></svg></span></span></
   document.querySelectorAll('.E-body').forEach(function(b){ var m=b.querySelector('.E-meta'); if(m) m.style.gridRow='1 / span '+Math.max(1,b.children.length-1); });
   buildToc(document.getElementById('d-essay')); buildToc(document.getElementById('d-test'));
   window.addEventListener('scroll',markToc,{passive:true}); window.addEventListener('hashchange',function(){ setTimeout(markToc,50); }); markToc();
+
+  // custom fixed-size scrollbars
+  (function(){
+    var TH=56, bars=[];
+    function make(getScroller, getRect){
+      var el=document.createElement('div'); el.className='sbar'; el.hidden=true; el.setAttribute('aria-hidden','true');
+      var th=document.createElement('div'); th.className='th'; el.appendChild(th); document.body.appendChild(el);
+      var bar={el:el, th:th, sc:getScroller, rect:getRect}; bars.push(bar);
+      th.addEventListener('pointerdown',function(e){
+        var sc=bar.sc(); if(!sc) return; e.preventDefault(); th.setPointerCapture(e.pointerId);
+        var y0=e.clientY, s0=sc.scrollTop, track=bar.trackH, max=sc.scrollHeight-sc.clientHeight;
+        function mv(ev){ sc.scrollTop=s0+(ev.clientY-y0)*max/Math.max(1,track-TH); }
+        function up(){ th.removeEventListener('pointermove',mv); th.removeEventListener('pointerup',up); th.removeEventListener('pointercancel',up); }
+        th.addEventListener('pointermove',mv); th.addEventListener('pointerup',up); th.addEventListener('pointercancel',up);
+      });
+    }
+    function upd(){
+      bars.forEach(function(b){
+        var sc=b.sc(), r=sc&&b.rect(sc);
+        if(!sc||!r||r.h<TH*2||sc.scrollHeight-sc.clientHeight<4){ b.el.hidden=true; return; }
+        b.el.hidden=false; b.trackH=r.h;
+        b.el.style.top=r.top+'px'; b.el.style.height=r.h+'px'; b.el.style.left=(r.right-13)+'px';
+        var max=sc.scrollHeight-sc.clientHeight, f=Math.min(1,Math.max(0,sc.scrollTop/max));
+        b.th.style.top=(f*(r.h-TH)).toFixed(1)+'px';
+      });
+    }
+    var chromeEl=document.querySelector('.chrome');
+    make(function(){return document.scrollingElement||document.documentElement;}, function(){
+      var t=chromeEl?chromeEl.getBoundingClientRect().bottom:0; return {top:t+8, h:window.innerHeight-t-16, right:window.innerWidth}; });
+    document.querySelectorAll('.B .col').forEach(function(col){
+      make(function(){ return (col.offsetParent && getComputedStyle(col).overflowY==='auto') ? col : null; }, function(){
+        var r=col.getBoundingClientRect(), top=Math.max(r.top, chromeEl?chromeEl.getBoundingClientRect().bottom:0), bot=Math.min(r.bottom, window.innerHeight);
+        return {top:top+8, h:bot-top-16, right:r.right}; });
+    });
+    var drw=document.getElementById('elements');
+    make(function(){ return (drw && !drw.hidden) ? drw : null; }, function(){ var r=drw.getBoundingClientRect(); return {top:r.top+6, h:r.height-12, right:r.right}; });
+    var q=false; function sched(){ if(q) return; q=true; requestAnimationFrame(function(){ q=false; upd(); }); }
+    window.addEventListener('scroll',sched,{passive:true,capture:true});
+    window.addEventListener('resize',sched); window.addEventListener('hashchange',function(){ setTimeout(sched,30); });
+    document.addEventListener('click',function(){ setTimeout(sched,30); });
+    if(window.ResizeObserver){ var ro=new ResizeObserver(sched); ro.observe(document.body); }
+    setInterval(sched,1000); sched();
+  })();
 
   // tabs
   var tabs=['notebook','panels','essay','test','figure','system'];
